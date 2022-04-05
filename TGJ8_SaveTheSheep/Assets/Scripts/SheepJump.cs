@@ -47,7 +47,7 @@ public class SheepJump : MonoBehaviour
     //Causing Sheep to constantly flip as if hitting a wall
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Sheep detects low object" + collision.name);
+        Debug.Log("Sheep detects low object " + collision.name);
         sheepYPosition = sheep.transform.position.y;
         sheepXPosition = sheep.transform.position.x;
 
