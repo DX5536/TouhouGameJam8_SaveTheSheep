@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 2529779}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,11 +362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5169278652290533576, guid: 2d476992119eba040b164cd1240c4d0a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.84
+      value: -3.83
       objectReference: {fileID: 0}
     - target: {fileID: 5169278652290533576, guid: 2d476992119eba040b164cd1240c4d0a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.55
+      value: -3.63
       objectReference: {fileID: 0}
     - target: {fileID: 5169278652290533576, guid: 2d476992119eba040b164cd1240c4d0a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -410,7 +410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5169278652290533581, guid: 2d476992119eba040b164cd1240c4d0a, type: 3}
       propertyPath: startdir
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -8082342535640516020, guid: 2d476992119eba040b164cd1240c4d0a, type: 3}
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 536357593}
   m_Layer: 0
   m_Name: Fence_02_Ramp
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -601,7 +601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536357592}
   m_LocalRotation: {x: -0, y: -0, z: -0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 3.88, y: 0.3699999, z: 0}
+  m_LocalPosition: {x: 3.88, y: 0.45, z: 0}
   m_LocalScale: {x: 0.3, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1771166359}
@@ -761,13 +761,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sheep: {fileID: 1158640963}
+  sheepBeh: {fileID: 1158640967}
+  lowObjectCollider: {fileID: 1063783527}
   jumpHeight: 1
-  numJump: 1
-  jumpDuration: 0.5
+  numJump: 0
+  jumpDuration: 0.3
   isSnapping: 0
   sheepXPosition: 0
   sheepYPosition: 0
-  endSheepJumpValue: 1.5
+  endSheepJumpXValue: 1.1
 --- !u!61 &1063783527
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -792,7 +794,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.05}
+  m_Size: {x: 0.2, y: 0.05}
   m_EdgeRadius: 0
 --- !u!1 &1068835772
 GameObject:
@@ -881,6 +883,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5169278652290533578, guid: 2d476992119eba040b164cd1240c4d0a, type: 3}
   m_PrefabInstance: {fileID: 444131718}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1158640967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5169278652290533581, guid: 2d476992119eba040b164cd1240c4d0a, type: 3}
+  m_PrefabInstance: {fileID: 444131718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158640963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2065dc2e736e39b4fa1de6f6a05cb319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1158640970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5169278652290533576, guid: 2d476992119eba040b164cd1240c4d0a, type: 3}
@@ -1065,7 +1078,7 @@ GameObject:
   - component: {fileID: 1503179853}
   m_Layer: 0
   m_Name: Floor_02
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1208,7 +1221,7 @@ GameObject:
   - component: {fileID: 1859755103}
   m_Layer: 0
   m_Name: Floor_01
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1426,7 +1439,7 @@ GameObject:
   - component: {fileID: 2082501491}
   m_Layer: 0
   m_Name: Floor_03
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

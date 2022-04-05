@@ -11,6 +11,12 @@ public class SheepJump : MonoBehaviour
     private GameObject sheep;
 
     [SerializeField]
+    private SheepBeh sheepBeh;
+
+    [SerializeField]
+    private BoxCollider2D lowObjectCollider;
+
+    [SerializeField]
     private float jumpHeight;
 
     [SerializeField]
@@ -29,7 +35,7 @@ public class SheepJump : MonoBehaviour
     private float sheepYPosition;
 
     [SerializeField]
-    private float endSheepJumpValue;
+    private float endSheepJumpXValue;
 
 
     void Start()
@@ -39,8 +45,23 @@ public class SheepJump : MonoBehaviour
 
     void Update()
     {
-        
-        
+        Debug.Log(sheepBeh.CurDir);
+
+        float currentXOffset = lowObjectCollider.offset.x;
+        float currentYOffset = lowObjectCollider.offset.y;
+
+        //The collider should be flip to the other side when sheep turn
+
+        /*if (sheepBeh.CurDir == SheepBeh.dir.right)
+        {
+            //lowObjectCollider.offset = new Vector2(currentXOffset , currentYOffset);
+        }
+
+        else if (sheepBeh.CurDir == SheepBeh.dir.left)
+        {
+            //lowObjectCollider.offset = new Vector2(currentXOffset * -1 , currentYOffset);
+        }*/
+
     }
 
     //Issue - If LowObjCollider is too high, sheepBeh will count it as a wall.
@@ -51,6 +72,10 @@ public class SheepJump : MonoBehaviour
         sheepYPosition = sheep.transform.position.y;
         sheepXPosition = sheep.transform.position.x;
 
-        sheep.transform.DOJump(new Vector2(sheepXPosition + endSheepJumpValue, sheepYPosition) , jumpHeight , numJump , jumpDuration , isSnapping);
+        if (!collision.gameObject.CompareTag("Floor"))
+        {
+            sheep.transform.DOJump(new Vector2(sheepXPosition + endSheepJumpXValue , sheepYPosition) , jumpHeight , numJump , jumpDuration , isSnapping);
+        }
+ 
     }
 }

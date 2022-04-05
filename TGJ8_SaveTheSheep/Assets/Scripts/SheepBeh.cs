@@ -23,6 +23,12 @@ public class SheepBeh : MonoBehaviour
     dir curDir;
     double curXVel;
 
+    public dir CurDir
+    {
+        get { return curDir; }
+        set { curDir = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
