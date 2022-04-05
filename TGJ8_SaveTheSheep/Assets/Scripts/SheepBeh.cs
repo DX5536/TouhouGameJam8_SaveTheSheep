@@ -13,9 +13,9 @@ public class SheepBeh : MonoBehaviour
 
     double moveSpeed = 1.5;
     Animator anim;
-    double wallDetectionRange = 0.1;
-    float wallDeadzone = 0.51f;
-    float wallVertCheck= 0.25f;
+    double wallDetectionRange = 0.05;
+    float wallDeadzone = 0.501f;
+    float wallVertCheck= 0.15f;
 
 
     //determines the maximum velocity down a sheep may go before their forward momentum halts
