@@ -15,6 +15,7 @@ public class SheepBeh : MonoBehaviour
     Animator anim;
     double wallDetectionRange = 0.1;
     float wallDeadzone = 0.51f;
+    float wallVertCheck= 0.25f;
 
 
     //determines the maximum velocity down a sheep may go before their forward momentum halts
@@ -56,6 +57,7 @@ public class SheepBeh : MonoBehaviour
 
     bool detectWall()
     {
+        bool detectedWall = false;
         // todo: raycast test for wall
         RaycastHit2D hit;
         float xOffset = transform.position.x + (curDir == dir.right ? wallDeadzone : -wallDeadzone);
@@ -65,8 +67,21 @@ public class SheepBeh : MonoBehaviour
         //Debug.Log("Ray origin: "+xOffset+", "+transform.position.y);
         //Debug.Log("Wall distance: "+hit.distance);
         //Debug.Log("Wall: "+hit.collider);
-        if (hit.collider != null) return hit.distance < wallDetectionRange;
-        return false;
+        if (hit.collider != null) detectedWall = hit.distance < wallDetectionRange;
+        //the other checks higher and lower to catch other terrain
+        if(!detectedWall)
+        {
+            Vector2 rayoriginH = new Vector2(xOffset, transform.position.y+wallVertCheck);
+            hit = Physics2D.Raycast(rayoriginH, curDir == dir.right ? Vector2.right : Vector2.left);
+            if (hit.collider != null) detectedWall = hit.distance < wallDetectionRange;
+            if(detectedWall) return detectedWall; else
+            {
+                Vector2 rayoriginL = new Vector2(xOffset, transform.position.y-wallVertCheck);
+                hit = Physics2D.Raycast(rayoriginL, curDir == dir.right ? Vector2.right : Vector2.left);
+                if (hit.collider != null) detectedWall = hit.distance < wallDetectionRange;
+            }
+        }
+        return detectedWall;
     }
 
     //possible test w/ raycasting to prevent sheep from walking off cliffs of a certain depth?
