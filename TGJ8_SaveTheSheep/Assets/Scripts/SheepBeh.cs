@@ -67,6 +67,9 @@ public class SheepBeh : MonoBehaviour
         //Debug.Log("Ray origin: "+xOffset+", "+transform.position.y);
         //Debug.Log("Wall distance: "+hit.distance);
         //Debug.Log("Wall: "+hit.collider);
+
+        Debug.DrawRay(hit.point , rayorigin, Color.red);
+
         if (hit.collider != null) detectedWall = hit.distance < wallDetectionRange;
         //the other checks higher and lower to catch other terrain
         if(!detectedWall)
