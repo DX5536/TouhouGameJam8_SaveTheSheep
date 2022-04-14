@@ -15,6 +15,11 @@ public class _KiroLib : MonoBehaviour
         }
         else return false;
     }
+    public static bool raycastToWall(Vector2 origin, Vector2 dir, ContactFilter2D filter, double detectionRange)
+    {
+        List<RaycastHit2D> hitList = new List<RaycastHit2D>();
+        return Physics2D.Raycast(origin, dir, filter, hitList, (float)detectionRange) > 0;
+    }
 
     public static ContactFilter2D getSheepFilter()
     {
@@ -26,9 +31,17 @@ public class _KiroLib : MonoBehaviour
     
     public static ContactFilter2D getDBulletFilter()
     {
-        ContactFilter2D sheepFilter = new ContactFilter2D();
-        sheepFilter.useLayerMask = true;
-        sheepFilter.layerMask = LayerMask.GetMask("Deflectable_Bullet");
-        return sheepFilter;
+        ContactFilter2D dBulletFilter = new ContactFilter2D();
+        dBulletFilter.useLayerMask = true;
+        dBulletFilter.layerMask = LayerMask.GetMask("Deflectable_Bullet");
+        return dBulletFilter;
+    }
+
+    public static ContactFilter2D getDefaultFilter()
+    {
+        ContactFilter2D defFilter = new ContactFilter2D();
+        defFilter.useLayerMask = true;
+        defFilter.layerMask = LayerMask.GetMask("Default");
+        return defFilter;
     }
 }

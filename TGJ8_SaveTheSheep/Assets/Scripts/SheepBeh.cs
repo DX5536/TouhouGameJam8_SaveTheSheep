@@ -94,16 +94,16 @@ public class SheepBeh : MonoBehaviour
         float xOffset = transform.position.x + (curDir == dir.right ? wallDeadzone : -wallDeadzone);
         Vector2 rayorigin = new Vector2(xOffset, transform.position.y);
 
-        detectedWall = _KiroLib.raycastToWall(rayorigin, curDir == dir.right ? Vector2.right : Vector2.left, wallDetectionRange);
+        detectedWall = _KiroLib.raycastToWall(rayorigin, curDir == dir.right ? Vector2.right : Vector2.left, _KiroLib.getDefaultFilter(), wallDetectionRange);
         //the other checks higher and lower to catch other terrain
         if(!detectedWall)
         {
             Vector2 rayoriginH = new Vector2(xOffset, transform.position.y+wallVertCheck);
-            detectedWall = _KiroLib.raycastToWall(rayoriginH, curDir == dir.right ? Vector2.right : Vector2.left, wallDetectionRange);
+            detectedWall = _KiroLib.raycastToWall(rayoriginH, curDir == dir.right ? Vector2.right : Vector2.left, _KiroLib.getDefaultFilter(), wallDetectionRange);
             if(!detectedWall)
             {
                 Vector2 rayoriginL = new Vector2(xOffset, transform.position.y-wallVertCheck);
-                detectedWall = _KiroLib.raycastToWall(rayoriginL, curDir == dir.right ? Vector2.right : Vector2.left, wallDetectionRange);
+                detectedWall = _KiroLib.raycastToWall(rayoriginL, curDir == dir.right ? Vector2.right : Vector2.left, _KiroLib.getDefaultFilter(), wallDetectionRange);
             }
         }
         return detectedWall;
