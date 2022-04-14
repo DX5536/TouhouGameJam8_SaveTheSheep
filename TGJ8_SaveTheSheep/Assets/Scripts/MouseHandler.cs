@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class MouseHandler : MonoBehaviour
 {
-    ContactFilter2D sheepFilter;
     // Start is called before the first frame update
     void Start()
     {
-        sheepFilter.useLayerMask = true;
-        sheepFilter.layerMask = LayerMask.GetMask("Sheep");
+
     }
 
     // Update is called once per frame
@@ -20,6 +18,11 @@ public class MouseHandler : MonoBehaviour
         {
             Collider2D sheepColl = detectSheepAtCurs();
             if(sheepColl != null) sheepColl.gameObject.GetComponent<SheepBeh>().mouseJump();
+            else
+            {
+                Collider2D dBullColl = detectDestructableBulletAtCurs();
+                if(dBullColl != null) dBullColl.gameObject.GetComponent<KnifeHandler>().clickDestroy();
+            }
         }
         //turn sheep if right click
         else if (Input.GetMouseButtonDown(1))
@@ -32,7 +35,17 @@ public class MouseHandler : MonoBehaviour
     Collider2D detectSheepAtCurs()
     {
         List<RaycastHit2D> hitList = new List<RaycastHit2D>();
-        if (Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, sheepFilter, hitList, 0.1f) > 0)
+        if (Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, _KiroLib.getSheepFilter(), hitList, 0.1f) > 0)
+        {
+            return hitList[0].collider;
+        }
+        else return null;
+    }
+
+    Collider2D detectDestructableBulletAtCurs()
+    {
+        List<RaycastHit2D> hitList = new List<RaycastHit2D>();
+        if (Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, _KiroLib.getDBulletFilter(), hitList, 0.1f) > 0)
         {
             return hitList[0].collider;
         }

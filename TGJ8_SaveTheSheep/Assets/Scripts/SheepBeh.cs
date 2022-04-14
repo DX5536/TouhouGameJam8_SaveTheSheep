@@ -159,5 +159,12 @@ public class SheepBeh : MonoBehaviour
     {
         if(isGrounded()) flip();
     }
+    
+    public void killByBullet()
+    {
+        //TODO
+        //TODO
+        Debug.Log("Sheep death by bullet called");
+    }
 
 }

@@ -15,4 +15,20 @@ public class _KiroLib : MonoBehaviour
         }
         else return false;
     }
+
+    public static ContactFilter2D getSheepFilter()
+    {
+        ContactFilter2D sheepFilter = new ContactFilter2D();
+        sheepFilter.useLayerMask = true;
+        sheepFilter.layerMask = LayerMask.GetMask("Sheep");
+        return sheepFilter;
+    }
+    
+    public static ContactFilter2D getDBulletFilter()
+    {
+        ContactFilter2D sheepFilter = new ContactFilter2D();
+        sheepFilter.useLayerMask = true;
+        sheepFilter.layerMask = LayerMask.GetMask("Deflectable_Bullet");
+        return sheepFilter;
+    }
 }
