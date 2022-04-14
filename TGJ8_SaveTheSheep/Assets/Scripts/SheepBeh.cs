@@ -12,6 +12,7 @@ public class SheepBeh : MonoBehaviour
     public dir startdir = dir.right;
 
     double moveSpeed = 1.5;
+    double jumpMult = 2.5;
     Animator anim;
     double wallDetectionRange = 0.05;
     float wallDeadzone = 0.501f;
@@ -24,7 +25,8 @@ public class SheepBeh : MonoBehaviour
     bool inGroundCheckLoop = false;
     bool currentlyTrackingFall = false;
     Vector2 trackingFallOrigin;
-    float JumpVelocity = 7f;
+    float JumpVelocity = 5.2f;
+    //7f for making 2 block jumps, ~5.2f for 1 block
 
 
     //determines the maximum velocity down a sheep may go before their forward momentum halts
@@ -61,14 +63,13 @@ public class SheepBeh : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
         else
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2((float)curXVel, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(hasJumped ? (float)(curXVel*jumpMult) :(float)curXVel, gameObject.GetComponent<Rigidbody2D>().velocity.y);
             if (detectWall()) flip();
             if(hasJumped && isFall && !inGroundCheckLoop) inGroundCheckLoop = true;
             if(inGroundCheckLoop && isGrounded())
             {
                 hasJumped = false;
                 inGroundCheckLoop = false;
-
             }
         }
         if(currentlyTrackingFall && !isFall)
@@ -152,7 +153,6 @@ public class SheepBeh : MonoBehaviour
     public void mouseJump()
     {
         doJump();
-        //Debug.Log("mouse Jump procced!");
     }
 
     public void mouseTurn()
