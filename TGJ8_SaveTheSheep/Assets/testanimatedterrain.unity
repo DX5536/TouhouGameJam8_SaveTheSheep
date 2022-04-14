@@ -2444,6 +2444,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2508089021806838928, guid: 0c45be34c2f361c4abe69e108f829725, type: 3}
+      propertyPath: m_Volume
+      value: 0.497
+      objectReference: {fileID: 0}
+    - target: {fileID: -2508089021806838928, guid: 0c45be34c2f361c4abe69e108f829725, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d99fe59ddc2a077438e25f7c4a92c877, type: 3}
     - target: {fileID: 8084357610277769760, guid: 0c45be34c2f361c4abe69e108f829725, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -2491,6 +2499,10 @@ PrefabInstance:
     - target: {fileID: 8084357610277769763, guid: 0c45be34c2f361c4abe69e108f829725, type: 3}
       propertyPath: m_Name
       value: GKnife_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084357610277769766, guid: 0c45be34c2f361c4abe69e108f829725, type: 3}
+      propertyPath: usesAudioSource
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8084357610277769766, guid: 0c45be34c2f361c4abe69e108f829725, type: 3}
       propertyPath: startingVelocity
