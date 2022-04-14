@@ -37,7 +37,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0;
         Debug.Log("Pause");
         pause();
-        StartCoroutine(FadeRoutine(1f, 5f, true));
+        StartCoroutine(FadeRoutine(0.5f, 5f, true));
         buttonSet.SetActive(true);
         blurb.SetActive(true);
     }
