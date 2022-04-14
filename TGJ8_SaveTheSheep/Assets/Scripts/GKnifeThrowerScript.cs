@@ -30,6 +30,8 @@ public class GKnifeThrowerScript : MonoBehaviour
         while(!breakLoop)
         {
             Rigidbody2D newKnife = Instantiate(knifeToThrow, new Vector3(gameObject.transform.position.x+xOffset, gameObject.transform.position.y+yOffset, gameObject.transform.position.z), Quaternion.Euler(0, 0, 0));
+            //Debug.Log("loop stepped");
+            newKnife.gameObject.GetComponent<KnifeHandler>().turretSpawn(startingVelocity);
             yield return new WaitForSecondsRealtime(throwDelays);
         }
     }

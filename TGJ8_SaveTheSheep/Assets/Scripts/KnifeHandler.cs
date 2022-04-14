@@ -5,11 +5,11 @@ using UnityEngine;
 public class KnifeHandler : MonoBehaviour
 {
     float startingXVel = -4f;
+    bool spawnedByTurret = false;
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(startingXVel, 0);
-        if(startingXVel > 0) gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        if(!spawnedByTurret) setXVelocity(startingXVel);
     }
 
     // Update is called once per frame
@@ -46,5 +46,17 @@ public class KnifeHandler : MonoBehaviour
     public void clickDestroy()
     {
         destroySelf();
+    }
+
+    public void setXVelocity(float vel)
+    {
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(vel, 0);
+        if(vel > 0) gameObject.GetComponent<SpriteRenderer>().flipX = true; else gameObject.GetComponent<SpriteRenderer>().flipX = false;
+    }
+    public void turretSpawn(float vel)
+    {
+        //Debug.Log("spawn script procced");
+        spawnedByTurret = true;
+        setXVelocity(vel);
     }
 }
