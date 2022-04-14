@@ -1090,6 +1090,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2508089021806838928, guid: 0c45be34c2f361c4abe69e108f829725, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8cda390cbf8085d4e856919ed0f705a0, type: 3}
     - target: {fileID: 8084357610277769760, guid: 0c45be34c2f361c4abe69e108f829725, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -1142,6 +1146,10 @@ PrefabInstance:
       propertyPath: knifeToThrow
       value: 
       objectReference: {fileID: 7336623621627598544, guid: c0975b45fb4122f409694eec609eb3d0, type: 3}
+    - target: {fileID: 8084357610277769766, guid: 0c45be34c2f361c4abe69e108f829725, type: 3}
+      propertyPath: usesAudioSource
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8084357610277769766, guid: 0c45be34c2f361c4abe69e108f829725, type: 3}
       propertyPath: startingVelocity
       value: -4
