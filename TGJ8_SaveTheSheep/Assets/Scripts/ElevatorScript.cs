@@ -55,12 +55,13 @@ public class ElevatorScript : MonoBehaviour, InteractableObject
             } 
             else
             {
+                float followDeadzone = 0.07f;
                 Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 mouseDirection = new Vector2(mousePos.x - gameObject.transform.position.x, mousePos.y - gameObject.transform.position.y);
                 mouseDirection.Normalize();
                 float applicableMult = speedMult;
                 //Debug.Log("Vec to Mouse: "+mouseDirection);
-                if((gameObject.transform.position.y < shaftBottomY && mouseDirection.y < 0) || (gameObject.transform.position.y > shaftPeakY && mouseDirection.y > 0)) applicableMult = 0;
+                if((gameObject.transform.position.y < shaftBottomY && mouseDirection.y < 0) || (gameObject.transform.position.y > shaftPeakY && mouseDirection.y > 0) || (Mathf.Abs(mousePos.x - gameObject.transform.position.x) < followDeadzone && Mathf.Abs(mousePos.y - gameObject.transform.position.y) < followDeadzone)) applicableMult = 0;
                 gameObject.GetComponent<Rigidbody2D>().velocity = mouseDirection * applicableMult;
             }
         }
