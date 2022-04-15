@@ -41,7 +41,15 @@ public class _KiroLib : MonoBehaviour
     {
         ContactFilter2D defFilter = new ContactFilter2D();
         defFilter.useLayerMask = true;
-        defFilter.layerMask = LayerMask.GetMask("Default");
+        defFilter.layerMask = LayerMask.GetMask("Default", "Interactable_Terrain", "Sheep");
         return defFilter;
+    }
+
+    public static ContactFilter2D getInteractableObjectFilter()
+    {
+        ContactFilter2D intFilter = new ContactFilter2D();
+        intFilter.useLayerMask = true;
+        intFilter.layerMask = LayerMask.GetMask("Interactable_Terrain");
+        return intFilter;
     }
 }

@@ -116,13 +116,9 @@ public class SheepBeh : MonoBehaviour
         Vector2 leftrayoffset = new Vector2(rayorigin.x - floorOffsetChecks, transform.position.y-(floorOffsetChecks+0.01f));
         Vector2 rightrayoffset = new Vector2(rayorigin.x + floorOffsetChecks, transform.position.y-(floorOffsetChecks+0.01f));
 
-        ContactFilter2D groundFilter = new ContactFilter2D();
-        groundFilter.useLayerMask = true;
-        groundFilter.layerMask = LayerMask.GetMask("Default", "Sheep");
-
-        bool detectedGround = _KiroLib.raycastToWall(rayorigin, Vector2.down, groundFilter, floorDetectionRange);
-        if(!detectedGround) detectedGround = _KiroLib.raycastToWall(leftrayoffset, Vector2.down, groundFilter, floorDetectionRange);
-        if(!detectedGround) detectedGround = _KiroLib.raycastToWall(rightrayoffset, Vector2.down, groundFilter, floorDetectionRange);
+        bool detectedGround = _KiroLib.raycastToWall(rayorigin, Vector2.down, _KiroLib.getDefaultFilter(), floorDetectionRange);
+        if(!detectedGround) detectedGround = _KiroLib.raycastToWall(leftrayoffset, Vector2.down, _KiroLib.getDefaultFilter(), floorDetectionRange);
+        if(!detectedGround) detectedGround = _KiroLib.raycastToWall(rightrayoffset, Vector2.down, _KiroLib.getDefaultFilter(), floorDetectionRange);
         return detectedGround;
     }
 
