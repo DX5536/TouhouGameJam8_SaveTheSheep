@@ -287,26 +287,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MouseHandler
       objectReference: {fileID: 0}
-    - target: {fileID: 3005851471150578382, guid: e3123cc59057cf34ab03dfb9c914e13f, type: 3}
-      propertyPath: offset.x
-      value: 0.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 3005851471150578382, guid: e3123cc59057cf34ab03dfb9c914e13f, type: 3}
-      propertyPath: offset.y
-      value: -0.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 3005851471150578383, guid: e3123cc59057cf34ab03dfb9c914e13f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3005851471150578383, guid: e3123cc59057cf34ab03dfb9c914e13f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3005851471150578383, guid: e3123cc59057cf34ab03dfb9c914e13f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3123cc59057cf34ab03dfb9c914e13f, type: 3}
 --- !u!1 &484500480
