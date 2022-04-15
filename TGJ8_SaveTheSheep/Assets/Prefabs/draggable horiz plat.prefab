@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sheepLock: 0
   automatedMovement: 0
-  startingOrientation: 2
+  startingLocale: 2
   shaftDepthUnits: 6
   unitSnap: 0.5
 --- !u!50 &5041993054608184342
