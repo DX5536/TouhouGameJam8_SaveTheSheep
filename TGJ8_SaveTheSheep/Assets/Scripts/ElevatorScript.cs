@@ -9,14 +9,16 @@ public class ElevatorScript : MonoBehaviour, InteractableObject
     //TODO
     public bool automatedMovement = false; //when automated, the elevator will move on its own and wont allow manual dragging
 
-    public enum startingPlacement {top, bottom};
+    public enum orientation {vertical, horizontal};
+    public enum startingPlacement {top, bottom, left, right};
     public startingPlacement startingOrientation = startingPlacement.bottom;
+    orientation curOrientation = orientation.vertical;
 
     public double shaftDepthUnits = 6; //depth of shaft either height or depth wise depending on starting orientation
     public double unitSnap = 0.5; //the elevator will snap to the nearest this unit
 
-    double shaftPeakY; //maximum Y of the elevator
-    double shaftBottomY; //minimum Y of the elevator
+    double shaftPeak; //maximum Y or X of the elevator
+    double shaftBottom; //minimum Y or X of the elevator
 
     bool currentlyMouseBound = false;
     float speedMult = 8;
@@ -24,16 +26,31 @@ public class ElevatorScript : MonoBehaviour, InteractableObject
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         //register shaft limits
         if (startingOrientation == startingPlacement.bottom)
         {
-            shaftBottomY = gameObject.transform.position.y;
-            shaftPeakY = shaftBottomY + shaftDepthUnits;
+            shaftBottom = gameObject.transform.position.y;
+            shaftPeak = shaftBottom + shaftDepthUnits;
+            curOrientation = orientation.vertical;
         }
-        else
+        else if (startingOrientation == startingPlacement.top)
         {
-            shaftPeakY = gameObject.transform.position.y;
-            shaftBottomY = shaftPeakY - shaftDepthUnits;
+            shaftPeak = gameObject.transform.position.y;
+            shaftBottom = shaftPeak - shaftDepthUnits;
+            curOrientation = orientation.vertical;
+        }
+        else if (startingOrientation == startingPlacement.left)
+        {
+            shaftBottom = gameObject.transform.position.x;
+            shaftPeak = shaftBottom + shaftDepthUnits;
+            curOrientation = orientation.horizontal;
+        }
+        else //if right
+        {
+            shaftPeak = gameObject.transform.position.x;
+            shaftBottom = shaftPeak - shaftDepthUnits;
+            curOrientation = orientation.horizontal;
         }
     }
 
@@ -60,8 +77,10 @@ public class ElevatorScript : MonoBehaviour, InteractableObject
                 Vector2 mouseDirection = new Vector2(mousePos.x - gameObject.transform.position.x, mousePos.y - gameObject.transform.position.y);
                 mouseDirection.Normalize();
                 float applicableMult = speedMult;
-                //Debug.Log("Vec to Mouse: "+mouseDirection);
-                if((gameObject.transform.position.y < shaftBottomY && mouseDirection.y < 0) || (gameObject.transform.position.y > shaftPeakY && mouseDirection.y > 0) || (Mathf.Abs(mousePos.x - gameObject.transform.position.x) < followDeadzone && Mathf.Abs(mousePos.y - gameObject.transform.position.y) < followDeadzone)) applicableMult = 0;
+                Debug.Log("Vec to Mouse: "+mouseDirection);
+                if((curOrientation == orientation.vertical && ((gameObject.transform.position.y < shaftBottom && mouseDirection.y < 0) || (gameObject.transform.position.y > shaftPeak && mouseDirection.y > 0))) ||
+                (curOrientation == orientation.horizontal && ((gameObject.transform.position.x < shaftBottom && mouseDirection.x < 0) || (gameObject.transform.position.x > shaftPeak && mouseDirection.x > 0))) ||
+                (Mathf.Abs(mousePos.x - gameObject.transform.position.x) < followDeadzone && Mathf.Abs(mousePos.y - gameObject.transform.position.y) < followDeadzone)) applicableMult = 0;
                 gameObject.GetComponent<Rigidbody2D>().velocity = mouseDirection * applicableMult;
             }
         }
@@ -80,23 +99,25 @@ public class ElevatorScript : MonoBehaviour, InteractableObject
     //snaps elevator to nearest unitsnap unit
     void snapElevator()
     {
-        double snappedHeight = gameObject.transform.position.y;
-        if(gameObject.transform.position.y > shaftPeakY) snappedHeight = shaftPeakY; else if(gameObject.transform.position.y < shaftBottomY) snappedHeight = shaftBottomY;
+        double snappedHeight = curOrientation == orientation.vertical ? gameObject.transform.position.y : gameObject.transform.position.x; //grab current location for later snapping
+        if(snappedHeight > shaftPeak) snappedHeight = shaftPeak; else if(snappedHeight < shaftBottom) snappedHeight = shaftBottom; //check if out of bounds
         else
         {
-            double relativeY = (gameObject.transform.position.y - shaftBottomY); // height on a scale if the bottom of the shaft were 0
-            snappedHeight = Mathf.Round((float)(relativeY/unitSnap))*unitSnap + shaftBottomY; //snapping to the nearest unitsnap unit
-            if(snappedHeight > shaftPeakY) snappedHeight = shaftPeakY; else if (snappedHeight < shaftBottomY) snappedHeight = shaftBottomY; //check odd rounding errors from depth / snap unit mismatches
+            double relativeHeight = ((curOrientation == orientation.vertical ? gameObject.transform.position.y : gameObject.transform.position.x) - shaftBottom); // height on a scale if the bottom of the shaft were 0
+            snappedHeight = Mathf.Round((float)(relativeHeight/unitSnap))*unitSnap + shaftBottom; //snapping to the nearest unitsnap unit
+            if(snappedHeight > shaftPeak) snappedHeight = shaftPeak; else if (snappedHeight < shaftBottom) snappedHeight = shaftBottom; //check odd rounding errors from depth / snap unit mismatches
         }
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        gameObject.transform.Translate(new Vector3(0, (float)(snappedHeight - gameObject.transform.position.y), 0));
+        if(curOrientation == orientation.vertical) gameObject.transform.Translate(new Vector3(0, (float)(snappedHeight - gameObject.transform.position.y), 0));
+        else gameObject.transform.Translate(new Vector3((float)(snappedHeight - gameObject.transform.position.x), 0, 0));
     }
 
     public bool onInteract()
     {
         currentlyMouseBound = true;
-        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        if(curOrientation == orientation.vertical) gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        else gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         //Debug.Log("Elevator interact script successfully procced.");
         return true;
     }
