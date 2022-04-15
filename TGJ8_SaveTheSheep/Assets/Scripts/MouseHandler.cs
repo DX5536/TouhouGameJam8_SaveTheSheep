@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class MouseHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    public AudioSource sfxClickNoClickable;
+    //public AudioSource sfxSheepTurn;
+    //public AudioSource sfxSheepJump;
+    //public AudioSource sfxDestroyProjectile;
 
     // Update is called once per frame
     void Update()
@@ -26,6 +25,7 @@ public class MouseHandler : MonoBehaviour
                 {
                     Collider2D intObjColl = detectInteractableObject();
                     if(intObjColl != null) intObjColl.gameObject.GetComponent<InteractableObject>().onInteract();
+                    else sfxClickNoClickable.Play();
                 }
             }
         }
