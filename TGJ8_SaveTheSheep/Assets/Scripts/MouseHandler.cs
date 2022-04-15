@@ -5,9 +5,11 @@ using UnityEngine;
 public class MouseHandler : MonoBehaviour
 {
     public AudioSource sfxClickNoClickable;
-    //public AudioSource sfxSheepTurn;
-    //public AudioSource sfxSheepJump;
-    //public AudioSource sfxDestroyProjectile;
+    public AudioSource sfxClickSheepTurn;
+    public AudioSource sfxClickSheepJump;
+    public AudioSource sfxClickDestroyProjectile;
+    public AudioSource sfxClickInteractableTerrain;
+    public Animator anim;
 
     // Update is called once per frame
     void Update()
@@ -15,16 +17,29 @@ public class MouseHandler : MonoBehaviour
         //sheep jumps when left click
         if(Input.GetMouseButtonDown(0))
         {
+            anim.SetBool("Pressed", true);
             Collider2D sheepColl = detectSheepAtCurs();
-            if(sheepColl != null) sheepColl.gameObject.GetComponent<SheepBeh>().mouseJump();
+            if(sheepColl != null)
+            {
+                sheepColl.gameObject.GetComponent<SheepBeh>().mouseJump();
+                sfxClickSheepJump.Play();
+            }
             else
             {
                 Collider2D dBullColl = detectDestructableBulletAtCurs();
-                if(dBullColl != null) dBullColl.gameObject.GetComponent<KnifeHandler>().clickDestroy();
+                if(dBullColl != null)
+                {
+                    dBullColl.gameObject.GetComponent<KnifeHandler>().clickDestroy();
+                    sfxClickDestroyProjectile.Play();
+                }
                 else
                 {
                     Collider2D intObjColl = detectInteractableObject();
-                    if(intObjColl != null) intObjColl.gameObject.GetComponent<InteractableObject>().onInteract();
+                    if(intObjColl != null)
+                    {
+                        intObjColl.gameObject.GetComponent<InteractableObject>().onInteract();
+                        sfxClickInteractableTerrain.Play();
+                    }
                     else sfxClickNoClickable.Play();
                 }
             }
@@ -32,8 +47,17 @@ public class MouseHandler : MonoBehaviour
         //turn sheep if right click
         else if (Input.GetMouseButtonDown(1))
         {
+            anim.SetBool("Pressed", true);
             Collider2D sheepColl = detectSheepAtCurs();
-            if(sheepColl != null) sheepColl.gameObject.GetComponent<SheepBeh>().mouseTurn();
+            if(sheepColl != null)
+            {
+                sheepColl.gameObject.GetComponent<SheepBeh>().mouseTurn();
+                sfxClickSheepTurn.Play();
+            }
+        }
+        if(!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
+        {
+            anim.SetBool("Pressed", false);
         }
     }
 

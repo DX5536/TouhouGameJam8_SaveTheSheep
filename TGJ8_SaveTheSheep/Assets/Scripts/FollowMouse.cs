@@ -6,9 +6,10 @@ public class FollowMouse : MonoBehaviour
 {
     // Start is called before the first frame update
     public Vector3 offset;
+    public bool cursorIsVisible;
     void Start()
     {
-        
+        Cursor.visible = cursorIsVisible;
     }
 
     // Update is called once per frame
