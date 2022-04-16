@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class SheepBeh : MonoBehaviour
 {
-
+    public enum health { alive, dead, delivered };
     public enum dir {left, right}
-
+    public health healthState = health.alive;
     //assuming this direction's default is the default direction of the sheep sprite
     public dir startdir = dir.right;
 
@@ -31,6 +31,11 @@ public class SheepBeh : MonoBehaviour
     bool onWaitCooldown = false;
     float waitingcooldown = 1f;
 
+    public delegate void DeathState();
+    public static event DeathState death;
+
+    public delegate void DeliverState();
+    public static event DeliverState delivered;
 
     //determines the maximum velocity down a sheep may go before their forward momentum halts
     double maxFallVBeforeHalt = 0.5;
@@ -55,35 +60,37 @@ public class SheepBeh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("is wait "+isWaiting+ " isoncd "+onWaitCooldown);
-        bool isFall = (gameObject.GetComponent<Rigidbody2D>().velocity.y < -maxFallVBeforeHalt) && !isGrounded();
-        anim.SetBool("Falling", isFall);
-        if(isFall && !currentlyTrackingFall)
+        if (healthState == health.alive)
         {
-            currentlyTrackingFall = true;
-            trackingFallOrigin = gameObject.GetComponent<Rigidbody2D>().position;
-        }
-        if(isFall && !hasJumped)
-        {
-            if(!isWaiting) gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
-        }
-        else
-        {
-            if(!isWaiting) gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(hasJumped ? (float)(curXVel*jumpMult) :(float)curXVel, gameObject.GetComponent<Rigidbody2D>().velocity.y);
-            if (detectWall()) flip();
-            if(hasJumped && isFall && !inGroundCheckLoop) inGroundCheckLoop = true;
-            if(inGroundCheckLoop && isGrounded())
+            //Debug.Log("is wait "+isWaiting+ " isoncd "+onWaitCooldown);
+            bool isFall = (gameObject.GetComponent<Rigidbody2D>().velocity.y < -maxFallVBeforeHalt) && !isGrounded();
+            anim.SetBool("Falling", isFall);
+            if (isFall && !currentlyTrackingFall)
             {
-                hasJumped = false;
-                inGroundCheckLoop = false;
+                currentlyTrackingFall = true;
+                trackingFallOrigin = gameObject.GetComponent<Rigidbody2D>().position;
+            }
+            if (isFall && !hasJumped)
+            {
+                if (!isWaiting) gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+            }
+            else
+            {
+                if (!isWaiting) gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(hasJumped ? (float)(curXVel * jumpMult) : (float)curXVel, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+                if (detectWall()) flip();
+                if (hasJumped && isFall && !inGroundCheckLoop) inGroundCheckLoop = true;
+                if (inGroundCheckLoop && isGrounded())
+                {
+                    hasJumped = false;
+                    inGroundCheckLoop = false;
+                }
+            }
+            if (currentlyTrackingFall && !isFall)
+            {
+                currentlyTrackingFall = false;
+                if (isFatalFall(trackingFallOrigin, gameObject.GetComponent<Rigidbody2D>().position)) killByFall();
             }
         }
-        if(currentlyTrackingFall && !isFall)
-        {
-            currentlyTrackingFall = false;
-            if(isFatalFall(trackingFallOrigin, gameObject.GetComponent<Rigidbody2D>().position)) killByFall();
-        }
-
     }
 
     void flip()
@@ -144,6 +151,7 @@ public class SheepBeh : MonoBehaviour
     {
         //TODO, kills sheep from fall damage
         //TODO
+        kill();
         Debug.Log("Sheep death by fall damage called");
     }
 
@@ -152,7 +160,24 @@ public class SheepBeh : MonoBehaviour
         //TODO, generic kill handler for sheep
         //TODO
         //Send this death to the script that handles level progress / sheep saved / sheep deaths?
+
+        //send a death message
+        //stop moving
+        //call death anims
+        //we can either leave it there or clean it up and destroy it
+        healthState = health.dead;
+        anim.SetBool("Dead", true);
+        death();
+        StartCoroutine(DeathRoutine(1f, true));
+
         Debug.Log("Sheep death by generic handler called");
+    }
+
+    void deliver()
+    {
+        //TODO function to facilitate sheep entering the goal
+        healthState = health.delivered;
+        delivered();
     }
 
 
@@ -199,4 +224,39 @@ public class SheepBeh : MonoBehaviour
         onWaitCooldown = false;
     }
 
+    private IEnumerator DeathRoutine(float duration, bool flash)
+    {
+        for (float i = 0; i < duration; i += (0.1f))
+        {
+            if (flash)
+            {
+                if (gameObject.GetComponent<SpriteRenderer>().color.a == 255f)
+                {
+                    SetRendererTo(new Color(255f, 255f, 255f, 0f));
+
+                }
+                else
+                {
+                    SetRendererTo(new Color(255f, 255f, 255f, 255f));
+
+
+                }
+            }
+            yield return new WaitForSeconds(0.15f);
+        }
+
+        SetRendererTo(new Color(255f, 255f, 255f, 0f));
+        Destroy(gameObject);
+    }
+
+    private void SetRendererTo(Color col)
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = col;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Test to see if the sheep delivery method works. WIP. I believe it triggers twice because there are two colliders on the sheep
+        deliver();
+    }
 }

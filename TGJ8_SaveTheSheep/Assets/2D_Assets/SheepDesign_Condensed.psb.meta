@@ -1067,7 +1067,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -2065200144
     mosaicPosition: {x: 0, y: 0}
   - name: Falling_SpeedLine_1
@@ -1109,7 +1109,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -705030723
     mosaicPosition: {x: 0, y: 0}
   - name: Front_Leg_1_Break
@@ -1144,7 +1144,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: -1995493659
     mosaicPosition: {x: 0, y: 0}
   - name: Leg_Front_1

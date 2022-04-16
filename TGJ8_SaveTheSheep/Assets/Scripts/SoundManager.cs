@@ -5,18 +5,48 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
+    private static SoundManager _instance;
+
+    public static SoundManager Instance { get { return _instance; } }
+
+    public SleepSheepScriptableObject so;
     public AudioSource pauseSFX;
     public AudioSource resumeSFX;
     public AudioSource selectSFX;
+    public AudioSource deathSFX;
+
     public AudioSource playingAudio;
     public AudioSource pauseAudio;
     public AudioMixer TrackA;
     public AudioMixer TrackB;
 
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        playingAudio.clip = so.playingAudio;
+        if (playingAudio.clip != null)
+        {
+            playingAudio.Play();
+        }
+
+        pauseAudio.clip = so.pauseAudio;
+        if (pauseAudio.clip != null)
+        {
+            pauseAudio.Play();
+        }
     }
 
     private void OnEnable()
@@ -25,6 +55,10 @@ public class SoundManager : MonoBehaviour
         Pause.pause += PausedTrack;
         Pause.resume += ResumeSFX;
         Pause.pause += PauseSFX;
+
+        SheepBeh.death += DeathSFX;
+        //SheepBeh.delivered += DetectedSheepDelivered;
+
     }
 
     private void OnDisable()
@@ -33,6 +67,9 @@ public class SoundManager : MonoBehaviour
         Pause.pause -= PausedTrack;
         Pause.resume -= ResumeSFX;
         Pause.pause -= PauseSFX;
+
+        SheepBeh.death -= DeathSFX;
+        //SheepBeh.delivered -= DetectedSheepDelivered;
     }
 
     // Update is called once per frame
@@ -99,5 +136,10 @@ public class SoundManager : MonoBehaviour
     void PauseSFX()
     {
         pauseSFX.Play();
+    }
+
+    void DeathSFX()
+    {
+        deathSFX.Play();
     }
 }
