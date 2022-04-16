@@ -159,17 +159,22 @@ public class SheepBeh : MonoBehaviour
     //externally accessible functions (to be called by mouse handler), now also handles suspending a sheep's wait state
     public void mouseJump()
     {
-        if(isWaiting)
-        {
-            isWaiting = false;
-            anim.SetBool("isWaiting", false);
-            StartCoroutine(waitingCooldownRoutine());
-        } else doJump();
+        if(isWaiting) stopWaiting();
+        else doJump();
+    }
+
+    void stopWaiting()
+    {
+        isWaiting = false;
+        anim.SetBool("isWaiting", false);
+        StartCoroutine(waitingCooldownRoutine());
     }
 
     public void mouseTurn()
     {
-        if(isGrounded()) flip();
+        if(isGrounded())
+            if(isWaiting) stopWaiting();
+            else flip();
     }
     
     public void killByBullet()

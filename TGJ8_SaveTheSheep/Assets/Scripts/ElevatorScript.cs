@@ -113,23 +113,10 @@ public class ElevatorScript : MonoBehaviour, InteractableObject
 
     void scanForSheep()
     {
-        //TODO
-        //TODO
-        //if sheep over center of elevator, toggle sheep into a wait mode (sheepbeh or here?)
-        
-        //because we can scan for sheep directly we can drop the deadzone and scan only for sheep tagged objects
-        //var max scan distance
-        //raycast up from origin for sheep, if find, tell sheep to stationary in its class
-
-        //sheep stationary class
-        //new bool waitingforelevator
-        //new bool on elevatorcooldown
-        //new float elevatorcooldowntime
-        
-        //when told to wait for elevator, see if currently on cooldown, if no and currently grounded, do it
-        //when do it, mark on elevator cooldown and start coroutine that will disable cooldown when triggered
-        //on mouseinteract, check if waiting for elevator, if yes, ignore jump, disable waiting for elevator
-
+        float maxScanDistance = 0.6f; // distance to scan up from the origin of the "elevator"
+        List<RaycastHit2D> hitList = new List<RaycastHit2D>();
+        if (Physics2D.Raycast(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Vector2.up, _KiroLib.getSheepFilter(), hitList, maxScanDistance) > 0)
+        hitList[0].collider.gameObject.GetComponent<SheepBeh>().askToWait();
     }
 
     IEnumerator automatedMoveWaitForTurn()
