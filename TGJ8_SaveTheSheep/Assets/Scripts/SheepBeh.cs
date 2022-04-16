@@ -172,9 +172,7 @@ public class SheepBeh : MonoBehaviour
 
     public void mouseTurn()
     {
-        if(isGrounded())
-            if(isWaiting) stopWaiting();
-            else flip();
+        if(isGrounded()) flip();
     }
     
     public void killByBullet()
