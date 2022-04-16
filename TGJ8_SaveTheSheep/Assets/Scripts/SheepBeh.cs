@@ -138,8 +138,11 @@ public class SheepBeh : MonoBehaviour
     void doJump()
     {
         //does jump for sheep, goal is 2 tiles high (little more than 2 tiles for room for error)
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, JumpVelocity);
-        hasJumped = true;
+        if(!hasJumped)
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, JumpVelocity);
+            hasJumped = true;
+        }
     }
 
     bool isFatalFall(Vector2 orig, Vector2 current)
