@@ -11,19 +11,31 @@ public class ScreenWipe : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        GameManager.enter += ScreenWipeVisible;
+        GameManager.exit += ScreenWipeBlack;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.enter -= ScreenWipeVisible;
+        GameManager.exit -= ScreenWipeBlack;
+    }
+
     // Update is called once per frame
     void Update()
     {
     }
 
-    public void ScreenWipeBlack(Vector3 start, Vector3 target, float duration)
+    public void ScreenWipeBlack()
     {
-        StartCoroutine(ScreenWiper(start, target, duration));
+        StartCoroutine(ScreenWiper(new Vector3(0f, 0f, 0f), new Vector3(20f, 20f, 0f), 0.5f));
     }
 
-    public void ScreenWipeVisible(Vector3 start, Vector3 target, float duration)
+    public void ScreenWipeVisible()
     {
-        StartCoroutine(ScreenWiper(start, target, duration));
+        StartCoroutine(ScreenWiper(new Vector3(20f, 20f, 0f), new Vector3(0f, 0f, 0f), 0.5f));
     }
 
     IEnumerator ScreenWiper(Vector3 startVec, Vector3 target, float duration)
