@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SandTile_1_RuleTile_PREFAB
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 21300000, guid: 835aa9986ffe89049a658f1b70a4847f, type: 3}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultGameObject: {fileID: 1947701903378156165, guid: df5439dd531faf34fbdaff24d0e5e3be, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 3

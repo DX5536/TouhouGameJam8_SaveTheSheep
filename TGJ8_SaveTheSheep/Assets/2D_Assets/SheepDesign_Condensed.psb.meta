@@ -1,5 +1,94 @@
 fileFormatVersion: 2
 guid: 9f611ce349892cb4280e29964ae5bc95
+labels:
+- name
+- EikiHat
+- spriteId
+- 50b909976c1f5444eacebdb624751fb6
+- name
+- SakuyaHeadband
+- spriteId
+- 327ac4d62ebc03943a18dcfca90681fa
+- name
+- YoumuHeadband
+- spriteId
+- ce207bfd5ba566944b45fec42e1755d3
+- name
+- MarisaHat
+- spriteId
+- 51858a201b3fa0745b29ada5a469792d
+- name
+- SanaePin
+- spriteId
+- 4fd4e0da636551a4c8b93dd43119a553
+- name
+- ClownpieceHat
+- spriteId
+- a7ad6f1024c08dd41ac36d5c5b028bf7
+- name
+- Futo_Hat
+- spriteId
+- 0f62613db4288944791f335ebade0928
+- name
+- MamizouLeaf
+- spriteId
+- cb4c4b7d61ea51f47818d82a77dc98e7
+- name
+- Satono_Sugar
+- spriteId
+- f4505f14163e2fc4bb8228a41bc13f9d
+- name
+- MaiHat_Bamboo
+- spriteId
+- 062dc35d007fd094dbc6e26c86e4a6d3
+- name
+- YuyukoHat
+- spriteId
+- 13a54a42d6ab27a489b45fd5921d8744
+- name
+- RanHat_Tail
+- spriteId
+- 58ece04d611910049846d176ce26cd63
+- name
+- ChenHat
+- spriteId
+- 4b769839adc161045bcb4c6d1270433c
+- name
+- YukariHat
+- spriteId
+- 8852a2742451bf24589a080cc872822b
+- name
+- FlandreHat
+- spriteId
+- 65585ad829763564c8c8c7caad0ebadc
+- name
+- RemiliaHat
+- spriteId
+- b7ef57d73385ec74bbe79d7b5a7aaab0
+- name
+- KeikiHat
+- spriteId
+- e579f1cdbd26c3c48abf491b2e8dec21
+- name
+- ReimuRibbon
+- spriteId
+- 176ed10c094fa9543a68a36a68aff117
+- name
+- OkuuRibbon
+- spriteId
+- 9ee4c2143d162464e838683ddce83698
+- name
+- MokouRibbon
+- spriteId
+- ede51701ee7ce5f42bba44a94ec8abad
+- name
+- KaguyaHouraiBranch
+- spriteId
+- 5eaf21def50a17d4987e439b8d4cfe7e
+- name
+- KeineHat
+- spriteId
+- f545751b96a39fd488175895a92f6e23
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -32,7 +121,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 450
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -104,7 +193,12 @@ ScriptedImporter:
       height: 496
     spriteID: a02e23b5573c9d54ca1e9b6fc49a13fb
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Body
+      position: {x: 74.21611, y: 200.49512, z: 0}
+      rotation: {x: 0, y: 0, z: 0.008196002, w: 0.99996644}
+      length: 526.5
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -126,7 +220,12 @@ ScriptedImporter:
       height: 285
     spriteID: 50b909976c1f5444eacebdb624751fb6
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 296.8709, y: 108.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -148,7 +247,12 @@ ScriptedImporter:
       height: 247
     spriteID: 327ac4d62ebc03943a18dcfca90681fa
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 234.87091, y: 95.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -170,7 +274,12 @@ ScriptedImporter:
       height: 234
     spriteID: ce207bfd5ba566944b45fec42e1755d3
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 335.8709, y: 78.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -192,7 +301,12 @@ ScriptedImporter:
       height: 342
     spriteID: 51858a201b3fa0745b29ada5a469792d
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 319.8709, y: 24.465088, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -214,7 +328,12 @@ ScriptedImporter:
       height: 129
     spriteID: 4fd4e0da636551a4c8b93dd43119a553
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 34.87085, y: 100.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -236,7 +355,12 @@ ScriptedImporter:
       height: 379
     spriteID: a7ad6f1024c08dd41ac36d5c5b028bf7
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 273.87085, y: 124.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -258,7 +382,12 @@ ScriptedImporter:
       height: 238
     spriteID: 0f62613db4288944791f335ebade0928
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 153.87091, y: 29.465088, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -280,7 +409,12 @@ ScriptedImporter:
       height: 222
     spriteID: cb4c4b7d61ea51f47818d82a77dc98e7
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 190.87091, y: 167.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -302,7 +436,12 @@ ScriptedImporter:
       height: 454
     spriteID: f4505f14163e2fc4bb8228a41bc13f9d
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 188.87091, y: 324.4651, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -324,7 +463,12 @@ ScriptedImporter:
       height: 466
     spriteID: 062dc35d007fd094dbc6e26c86e4a6d3
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 303.8709, y: 332.4651, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -346,7 +490,12 @@ ScriptedImporter:
       height: 408
     spriteID: 58ece04d611910049846d176ce26cd63
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 260.8709, y: 138.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -368,7 +517,12 @@ ScriptedImporter:
       height: 442
     spriteID: 13a54a42d6ab27a489b45fd5921d8744
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 273.87085, y: 229.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -390,7 +544,12 @@ ScriptedImporter:
       height: 300
     spriteID: 4b769839adc161045bcb4c6d1270433c
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 262.8709, y: 72.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -412,7 +571,12 @@ ScriptedImporter:
       height: 274
     spriteID: 8852a2742451bf24589a080cc872822b
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 265.8709, y: 72.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -434,7 +598,12 @@ ScriptedImporter:
       height: 250
     spriteID: 65585ad829763564c8c8c7caad0ebadc
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 262.8709, y: 72.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -456,7 +625,12 @@ ScriptedImporter:
       height: 239
     spriteID: b7ef57d73385ec74bbe79d7b5a7aaab0
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 334.8709, y: 72.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -478,7 +652,12 @@ ScriptedImporter:
       height: 304
     spriteID: e579f1cdbd26c3c48abf491b2e8dec21
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 216.87085, y: 128.46509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -500,7 +679,12 @@ ScriptedImporter:
       height: 264
     spriteID: 176ed10c094fa9543a68a36a68aff117
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 254.87091, y: 13.465088, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -522,7 +706,12 @@ ScriptedImporter:
       height: 565
     spriteID: 9ee4c2143d162464e838683ddce83698
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 244.87091, y: 314.4651, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -544,7 +733,12 @@ ScriptedImporter:
       height: 215
     spriteID: ede51701ee7ce5f42bba44a94ec8abad
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 268.8709, y: 11.465088, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -566,7 +760,12 @@ ScriptedImporter:
       height: 126
     spriteID: 5eaf21def50a17d4987e439b8d4cfe7e
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 282.8709, y: 277.4651, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -588,7 +787,12 @@ ScriptedImporter:
       height: 250
     spriteID: f545751b96a39fd488175895a92f6e23
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Hat
+      position: {x: 177.87085, y: 18.465088, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92932916, w: 0.36925253}
+      length: 140.41238
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -654,7 +858,12 @@ ScriptedImporter:
       height: 546
     spriteID: 00a693569bd324844b999e769fcb01f1
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Body
+      position: {x: 75.216125, y: 220.49512, z: 0}
+      rotation: {x: 0, y: 0, z: 0.008196002, w: 0.99996644}
+      length: 526.5
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -676,7 +885,12 @@ ScriptedImporter:
       height: 496
     spriteID: e6d5966675d130d49b7b6688c595c195
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_Body
+      position: {x: 74.21611, y: 200.49512, z: 0}
+      rotation: {x: 0, y: 0, z: 0.008196002, w: 0.99996644}
+      length: 526.5
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -698,7 +912,12 @@ ScriptedImporter:
       height: 113
     spriteID: aa228857216c36c4fa4eb3fb1e7c474c
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_FrontLeg_1
+      position: {x: 151.88428, y: 126.373535, z: 0}
+      rotation: {x: 0, y: 0, z: -0.8051085, w: 0.5931276}
+      length: 131.02248
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -720,7 +939,12 @@ ScriptedImporter:
       height: 147
     spriteID: 1de38f7216bac7b408d5a69331b89832
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_FrontLeg_2
+      position: {x: 104.0094, y: 108.68848, z: 0}
+      rotation: {x: 0, y: 0, z: -0.8112422, w: 0.5847103}
+      length: 122.806885
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -742,7 +966,12 @@ ScriptedImporter:
       height: 108
     spriteID: ee7746823d201be478387e8f6d4543ff
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_BackLeg_1
+      position: {x: 23.975586, y: 133.75684, z: 0}
+      rotation: {x: 0, y: 0, z: -0.563182, w: 0.8263329}
+      length: 129.80891
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -764,7 +993,12 @@ ScriptedImporter:
       height: 145
     spriteID: 889778665aa773c48a5962b17766019a
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_BackLeg_2
+      position: {x: -100.639404, y: 92.19531, z: 0}
+      rotation: {x: 0, y: 0, z: -0.5923364, w: 0.80569077}
+      length: 120.554184
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -786,7 +1020,12 @@ ScriptedImporter:
       height: 169
     spriteID: 3a7df5923aaa25f4bb93b68210fbbc74
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_FrontLeg_1
+      position: {x: 69.88428, y: 141.37354, z: 0}
+      rotation: {x: 0, y: 0, z: -0.8051085, w: 0.5931276}
+      length: 131.02248
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -808,7 +1047,12 @@ ScriptedImporter:
       height: 164
     spriteID: 78aae79521043fc4c9a1a82f63096484
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_FrontLeg_2
+      position: {x: 64.0094, y: 142.6886, z: 0}
+      rotation: {x: 0, y: 0, z: -0.8112422, w: 0.5847103}
+      length: 122.806885
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -830,7 +1074,12 @@ ScriptedImporter:
       height: 172
     spriteID: 40669eb3b9009e5449a523b1b79dc4ce
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_BackLeg_1
+      position: {x: 33.975586, y: 149.75684, z: 0}
+      rotation: {x: 0, y: 0, z: -0.563182, w: 0.8263329}
+      length: 129.80891
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -852,7 +1101,12 @@ ScriptedImporter:
       height: 175
     spriteID: a2ad94684d896064e9ec542201bdeaf9
     internalID: 0
-    spriteBone: []
+    spriteBone:
+    - name: bone_BackLeg_2
+      position: {x: 33.360657, y: 154.19531, z: 0}
+      rotation: {x: 0, y: 0, z: -0.5923364, w: 0.80569077}
+      length: 120.554184
+      parentId: -1
     spriteOutline: []
     vertices: []
     spritePhysicsOutline: []
@@ -867,7 +1121,7 @@ ScriptedImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
     crunchedCompression: 0
@@ -878,7 +1132,7 @@ ScriptedImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
     crunchedCompression: 0
@@ -894,7 +1148,85 @@ ScriptedImporter:
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
-    categories: []
+    categories:
+    - name: Accessory
+      labels:
+      - name: EikiHat
+        spriteId: 50b909976c1f5444eacebdb624751fb6
+      - name: SakuyaHeadband
+        spriteId: 327ac4d62ebc03943a18dcfca90681fa
+      - name: YoumuHeadband
+        spriteId: ce207bfd5ba566944b45fec42e1755d3
+      - name: MarisaHat
+        spriteId: 51858a201b3fa0745b29ada5a469792d
+      - name: SanaePin
+        spriteId: 4fd4e0da636551a4c8b93dd43119a553
+      - name: ClownpieceHat
+        spriteId: a7ad6f1024c08dd41ac36d5c5b028bf7
+      - name: Futo_Hat
+        spriteId: 0f62613db4288944791f335ebade0928
+      - name: MamizouLeaf
+        spriteId: cb4c4b7d61ea51f47818d82a77dc98e7
+      - name: Satono_Sugar
+        spriteId: f4505f14163e2fc4bb8228a41bc13f9d
+      - name: MaiHat_Bamboo
+        spriteId: 062dc35d007fd094dbc6e26c86e4a6d3
+      - name: YuyukoHat
+        spriteId: 13a54a42d6ab27a489b45fd5921d8744
+      - name: RanHat_Tail
+        spriteId: 58ece04d611910049846d176ce26cd63
+      - name: ChenHat
+        spriteId: 4b769839adc161045bcb4c6d1270433c
+      - name: YukariHat
+        spriteId: 8852a2742451bf24589a080cc872822b
+      - name: FlandreHat
+        spriteId: 65585ad829763564c8c8c7caad0ebadc
+      - name: RemiliaHat
+        spriteId: b7ef57d73385ec74bbe79d7b5a7aaab0
+      - name: KeikiHat
+        spriteId: e579f1cdbd26c3c48abf491b2e8dec21
+      - name: ReimuRibbon
+        spriteId: 176ed10c094fa9543a68a36a68aff117
+      - name: OkuuRibbon
+        spriteId: 9ee4c2143d162464e838683ddce83698
+      - name: MokouRibbon
+        spriteId: ede51701ee7ce5f42bba44a94ec8abad
+      - name: KaguyaHouraiBranch
+        spriteId: 5eaf21def50a17d4987e439b8d4cfe7e
+      - name: KeineHat
+        spriteId: f545751b96a39fd488175895a92f6e23
+    - name: SheepBody
+      labels:
+      - name: Sheep_Base_Break
+        spriteId: 00a693569bd324844b999e769fcb01f1
+      - name: Sheep_Base_Falling
+        spriteId: e6d5966675d130d49b7b6688c595c195
+      - name: Sheep_Base
+        spriteId: a02e23b5573c9d54ca1e9b6fc49a13fb
+    - name: Front_Leg_1
+      labels:
+      - name: Front_Leg_1_Break
+        spriteId: aa228857216c36c4fa4eb3fb1e7c474c
+      - name: Leg_Front_1
+        spriteId: 3a7df5923aaa25f4bb93b68210fbbc74
+    - name: Front_Leg_2
+      labels:
+      - name: Front_Leg_2_Break
+        spriteId: 1de38f7216bac7b408d5a69331b89832
+      - name: Leg_Front_2
+        spriteId: 78aae79521043fc4c9a1a82f63096484
+    - name: Back_Leg_1
+      labels:
+      - name: Back_Leg_1_Break
+        spriteId: ee7746823d201be478387e8f6d4543ff
+      - name: Leg_Back_1
+        spriteId: 40669eb3b9009e5449a523b1b79dc4ce
+    - name: BackLeg_2
+      labels:
+      - name: Back_Leg_2_Break
+        spriteId: 889778665aa773c48a5962b17766019a
+      - name: Leg_Back_2
+        spriteId: a2ad94684d896064e9ec542201bdeaf9
   textureActualWidth: 2048
   textureActualHeight: 4096
   spritePackingTag: 
@@ -1176,8 +1508,353 @@ ScriptedImporter:
     layerID: -870032173
     mosaicPosition: {x: 482, y: 3874}
   characterData:
-    bones: []
-    parts: []
+    bones:
+    - name: bone_Body
+      position: {x: 179.21611, y: 283.49512, z: 0}
+      rotation: {x: 0, y: 0, z: 0.008196002, w: 0.99996644}
+      length: 526.50006
+      parentId: -1
+    - name: bone_FrontLeg_1
+      position: {x: 180.96964, y: -105.10199, z: 0}
+      rotation: {x: 0, y: -0, z: -0.8099427, w: 0.586509}
+      length: 131.02248
+      parentId: 0
+    - name: bone_FrontLeg_2
+      position: {x: 73.18001, y: -99.019356, z: 0}
+      rotation: {x: 0, y: -0, z: -0.81600726, w: 0.5780417}
+      length: 122.8069
+      parentId: 0
+    - name: bone_BackLeg_2
+      position: {x: 356.68182, y: -92.15879, z: 0}
+      rotation: {x: 0, y: 0, z: -0.5989199, w: 0.8008089}
+      length: 120.55417
+      parentId: 0
+    - name: bone_BackLeg_1
+      position: {x: 447.26102, y: -95.082245, z: 0}
+      rotation: {x: 0, y: 0, z: -0.5699357, w: 0.8216893}
+      length: 129.80893
+      parentId: 0
+    - name: bone_Hat
+      position: {x: 162.32106, y: 161.33098, z: 0}
+      rotation: {x: 0, y: -0, z: 0.9262715, w: 0.3768569}
+      length: 140.41243
+      parentId: 0
+    parts:
+    - spritePosition:
+        x: 42
+        y: 339
+        width: 462
+        height: 285
+      spriteId: 50b909976c1f5444eacebdb624751fb6
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 104
+        y: 352
+        width: 406
+        height: 247
+      spriteId: 327ac4d62ebc03943a18dcfca90681fa
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 3
+        y: 369
+        width: 458
+        height: 234
+      spriteId: ce207bfd5ba566944b45fec42e1755d3
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 19
+        y: 423
+        width: 714
+        height: 342
+      spriteId: 51858a201b3fa0745b29ada5a469792d
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 304
+        y: 347
+        width: 152
+        height: 129
+      spriteId: 4fd4e0da636551a4c8b93dd43119a553
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 65
+        y: 323
+        width: 452
+        height: 379
+      spriteId: a7ad6f1024c08dd41ac36d5c5b028bf7
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 185
+        y: 418
+        width: 561
+        height: 238
+      spriteId: 0f62613db4288944791f335ebade0928
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 148
+        y: 280
+        width: 629
+        height: 222
+      spriteId: cb4c4b7d61ea51f47818d82a77dc98e7
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 150
+        y: 123
+        width: 426
+        height: 454
+      spriteId: f4505f14163e2fc4bb8228a41bc13f9d
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 35
+        y: 115
+        width: 347
+        height: 466
+      spriteId: 062dc35d007fd094dbc6e26c86e4a6d3
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 78
+        y: 309
+        width: 710
+        height: 408
+      spriteId: 58ece04d611910049846d176ce26cd63
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 65
+        y: 218
+        width: 549
+        height: 442
+      spriteId: 13a54a42d6ab27a489b45fd5921d8744
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 76
+        y: 375
+        width: 669
+        height: 300
+      spriteId: 4b769839adc161045bcb4c6d1270433c
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 73
+        y: 375
+        width: 466
+        height: 274
+      spriteId: 8852a2742451bf24589a080cc872822b
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 76
+        y: 375
+        width: 541
+        height: 250
+      spriteId: 65585ad829763564c8c8c7caad0ebadc
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 4
+        y: 375
+        width: 535
+        height: 239
+      spriteId: b7ef57d73385ec74bbe79d7b5a7aaab0
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 122
+        y: 319
+        width: 474
+        height: 304
+      spriteId: e579f1cdbd26c3c48abf491b2e8dec21
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 84
+        y: 434
+        width: 406
+        height: 264
+      spriteId: 176ed10c094fa9543a68a36a68aff117
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 94
+        y: 133
+        width: 370
+        height: 565
+      spriteId: 9ee4c2143d162464e838683ddce83698
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 70
+        y: 436
+        width: 470
+        height: 215
+      spriteId: ede51701ee7ce5f42bba44a94ec8abad
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 56
+        y: 170
+        width: 265
+        height: 126
+      spriteId: 5eaf21def50a17d4987e439b8d4cfe7e
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 161
+        y: 429
+        width: 226
+        height: 250
+      spriteId: f545751b96a39fd488175895a92f6e23
+      bones: 05000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 98
+        y: 149
+        width: 635
+        height: 634
+      spriteId: 33ce24b9a36e021469cf73245476b4de
+      bones: 
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 98
+        y: 73
+        width: 654
+        height: 703
+      spriteId: ae24befce809b474fab0ae88183b47d0
+      bones: 
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 104
+        y: 63
+        width: 695
+        height: 546
+      spriteId: 00a693569bd324844b999e769fcb01f1
+      bones: 00000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 105
+        y: 83
+        width: 640
+        height: 496
+      spriteId: e6d5966675d130d49b7b6688c595c195
+      bones: 00000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 105
+        y: 83
+        width: 640
+        height: 496
+      spriteId: a02e23b5573c9d54ca1e9b6fc49a13fb
+      bones: 00000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 210
+        y: 55
+        width: 160
+        height: 113
+      spriteId: aa228857216c36c4fa4eb3fb1e7c474c
+      bones: 01000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 150
+        y: 77
+        width: 125
+        height: 147
+      spriteId: 1de38f7216bac7b408d5a69331b89832
+      bones: 02000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 604
+        y: 62
+        width: 179
+        height: 108
+      spriteId: ee7746823d201be478387e8f6d4543ff
+      bones: 04000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 638
+        y: 105
+        width: 152
+        height: 145
+      spriteId: 889778665aa773c48a5962b17766019a
+      bones: 03000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 292
+        y: 40
+        width: 109
+        height: 169
+      spriteId: 3a7df5923aaa25f4bb93b68210fbbc74
+      bones: 01000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 190
+        y: 43
+        width: 108
+        height: 164
+      spriteId: 78aae79521043fc4c9a1a82f63096484
+      bones: 02000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 594
+        y: 46
+        width: 116
+        height: 172
+      spriteId: 40669eb3b9009e5449a523b1b79dc4ce
+      bones: 04000000
+      parentGroup: 0
+      order: 0
+    - spritePosition:
+        x: 504
+        y: 43
+        width: 166
+        height: 175
+      spriteId: a2ad94684d896064e9ec542201bdeaf9
+      bones: 03000000
+      parentGroup: 0
+      order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
   generateGOHierarchy: 1
