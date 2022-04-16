@@ -53,8 +53,9 @@ public class SheepBeh : MonoBehaviour
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
-        gameObject.GetComponent<SpriteRenderer>().flipX = startdir != dir.right ? true : false;
+        //gameObject.GetComponent<SpriteRenderer>().flipX = startdir != dir.right ? true : false;
         curDir = startdir;
+        FlipScale(curDir);
         curXVel = startdir == dir.right ? moveSpeed : -moveSpeed;
     }
 
@@ -98,7 +99,8 @@ public class SheepBeh : MonoBehaviour
     {
         //Debug.Log("flip has been called");
         curDir = curDir == dir.left ? dir.right : dir.left;
-        gameObject.GetComponent<SpriteRenderer>().flipX = curDir != dir.right ? true : false;
+        FlipScale(curDir);
+        //gameObject.GetComponent<SpriteRenderer>().flipX = curDir != dir.right ? true : false;
         curXVel = curDir == dir.right ? moveSpeed : -moveSpeed;
     }
 
@@ -278,5 +280,17 @@ public class SheepBeh : MonoBehaviour
         float winAnimationTime = 1f;
         yield return new WaitForSeconds(winAnimationTime);
         deliver(); //finalize delivering
+    }
+
+    void FlipScale(dir curDir)
+    {
+        if(curDir == dir.right)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
     }
 }
