@@ -946,6 +946,10 @@ PrefabInstance:
       value: ele_shaft
       objectReference: {fileID: 0}
     - target: {fileID: 604889890717046856, guid: 3260e04f7d0de2b4c96ae7b677739c5d, type: 3}
+      propertyPath: sheepLock
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 604889890717046856, guid: 3260e04f7d0de2b4c96ae7b677739c5d, type: 3}
       propertyPath: startingLocale
       value: 0
       objectReference: {fileID: 0}
