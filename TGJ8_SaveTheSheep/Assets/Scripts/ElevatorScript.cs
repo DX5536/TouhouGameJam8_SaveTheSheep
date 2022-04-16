@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ElevatorScript : MonoBehaviour, InteractableObject
 {
-    //TODO
     public bool sheepLock = false; //when enabled, sheep will automatically stop on the elevator and must be dismissed manually
     public bool automatedMovement = false; //when automated, the elevator will move on its own and wont allow manual dragging
     bool automatedMovement_curGoingUpShaft = false;
@@ -60,9 +59,6 @@ public class ElevatorScript : MonoBehaviour, InteractableObject
     // Update is called once per frame
     void Update()
     {
-        //TODO
-        //TODO
-        //if sheep lock, if sheep over center of elevator, toggle sheep into a wait mode (sheepbeh or here?)
         if(!automatedMovement && currentlyMouseBound)
         {
             if(Input.GetMouseButtonUp(0))
@@ -111,11 +107,29 @@ public class ElevatorScript : MonoBehaviour, InteractableObject
                 StartCoroutine(automatedMoveWaitForTurn());
             }
         }
+
+        if(sheepLock) scanForSheep();
     }
 
-    void lockSheep()
+    void scanForSheep()
     {
         //TODO
+        //TODO
+        //if sheep over center of elevator, toggle sheep into a wait mode (sheepbeh or here?)
+        
+        //because we can scan for sheep directly we can drop the deadzone and scan only for sheep tagged objects
+        //var max scan distance
+        //raycast up from origin for sheep, if find, tell sheep to stationary in its class
+
+        //sheep stationary class
+        //new bool waitingforelevator
+        //new bool on elevatorcooldown
+        //new float elevatorcooldowntime
+        
+        //when told to wait for elevator, see if currently on cooldown, if no and currently grounded, do it
+        //when do it, mark on elevator cooldown and start coroutine that will disable cooldown when triggered
+        //on mouseinteract, check if waiting for elevator, if yes, ignore jump, disable waiting for elevator
+
     }
 
     IEnumerator automatedMoveWaitForTurn()

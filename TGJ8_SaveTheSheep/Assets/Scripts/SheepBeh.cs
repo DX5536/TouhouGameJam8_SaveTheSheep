@@ -27,6 +27,9 @@ public class SheepBeh : MonoBehaviour
     Vector2 trackingFallOrigin;
     float JumpVelocity = 5.2f;
     //7f for making 2 block jumps, ~5.2f for 1 block
+    bool isWaiting = false;
+    bool onWaitCooldown = false;
+    float waitingcooldown = 1f;
 
 
     //determines the maximum velocity down a sheep may go before their forward momentum halts
@@ -52,7 +55,8 @@ public class SheepBeh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isFall = gameObject.GetComponent<Rigidbody2D>().velocity.y < -maxFallVBeforeHalt;
+        //Debug.Log("is wait "+isWaiting+ " isoncd "+onWaitCooldown);
+        bool isFall = (gameObject.GetComponent<Rigidbody2D>().velocity.y < -maxFallVBeforeHalt) && !isGrounded();
         anim.SetBool("Falling", isFall);
         if(isFall && !currentlyTrackingFall)
         {
@@ -60,10 +64,12 @@ public class SheepBeh : MonoBehaviour
             trackingFallOrigin = gameObject.GetComponent<Rigidbody2D>().position;
         }
         if(isFall && !hasJumped)
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        {
+            if(!isWaiting) gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        }
         else
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(hasJumped ? (float)(curXVel*jumpMult) :(float)curXVel, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+            if(!isWaiting) gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(hasJumped ? (float)(curXVel*jumpMult) :(float)curXVel, gameObject.GetComponent<Rigidbody2D>().velocity.y);
             if (detectWall()) flip();
             if(hasJumped && isFall && !inGroundCheckLoop) inGroundCheckLoop = true;
             if(inGroundCheckLoop && isGrounded())
@@ -150,10 +156,15 @@ public class SheepBeh : MonoBehaviour
     }
 
 
-    //externally accessible functions (to be called by mouse handler)
+    //externally accessible functions (to be called by mouse handler), now also handles suspending a sheep's wait state
     public void mouseJump()
     {
-        doJump();
+        if(isWaiting)
+        {
+            isWaiting = false;
+            anim.SetBool("isWaiting", false);
+            StartCoroutine(waitingCooldownRoutine());
+        } else doJump();
     }
 
     public void mouseTurn()
@@ -166,6 +177,26 @@ public class SheepBeh : MonoBehaviour
         //TODO
         //TODO
         Debug.Log("Sheep death by bullet called");
+    }
+
+    public bool askToWait()
+    {
+        if(isWaiting || onWaitCooldown || !isGrounded()) return false; //waiting request does not go through
+        else
+        {
+            isWaiting = true;
+            onWaitCooldown = true;
+            anim.SetBool("isWaiting", true);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+            //waiting cooldown routine expirary routine will be procced on waiting stopping, like when the sheep is clicked so, time until click + cooldown time
+            return true;
+        }
+    }
+
+    IEnumerator waitingCooldownRoutine()
+    {
+        yield return new WaitForSecondsRealtime(waitingcooldown);
+        onWaitCooldown = false;
     }
 
 }
