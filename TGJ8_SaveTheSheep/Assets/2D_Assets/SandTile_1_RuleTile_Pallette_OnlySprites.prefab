@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 8908231368577057460}
   - component: {fileID: 8588478565361836601}
   m_Layer: 31
-  m_Name: SandTile_1_RuleTile_Pallette
+  m_Name: SandTile_1_RuleTile_Pallette_OnlySprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
