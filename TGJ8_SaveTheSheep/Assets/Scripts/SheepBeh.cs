@@ -36,6 +36,7 @@ public class SheepBeh : MonoBehaviour
 
     public delegate void DeliverState();
     public static event DeliverState delivered;
+    bool isDelivered = false;
 
     //determines the maximum velocity down a sheep may go before their forward momentum halts
     double maxFallVBeforeHalt = 0.5;
@@ -260,9 +261,22 @@ public class SheepBeh : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = col;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void markAsDelivered()
     {
-        //Test to see if the sheep delivery method works. WIP. I believe it triggers twice because there are two colliders on the sheep
-        deliver();
+        if(!isDelivered)
+        {
+            isDelivered = true;
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            anim.SetBool("isDelivered", true);
+            gameObject.layer = LayerMask.NameToLayer("Sheep_removedFromPlay");
+            StartCoroutine(deliveryRoutine());
+        }
+    }
+
+    IEnumerator deliveryRoutine()
+    {
+        float winAnimationTime = 1f;
+        yield return new WaitForSeconds(winAnimationTime);
+        deliver(); //finalize delivering
     }
 }
