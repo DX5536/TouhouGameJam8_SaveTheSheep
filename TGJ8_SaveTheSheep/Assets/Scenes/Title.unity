@@ -1412,7 +1412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7198afa4dde755b4ea36aee899e5504c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: euloguos_tutorial_basiccontrolsconversion
+  targetScene: tutorial
 --- !u!4 &1102453470
 Transform:
   m_ObjectHideFlags: 0

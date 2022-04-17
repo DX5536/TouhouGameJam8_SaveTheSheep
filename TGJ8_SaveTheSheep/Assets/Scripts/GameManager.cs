@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public delegate void EnterState();
     public static event EnterState enter;
 
+    public delegate void dialogueStartState();
+    public static event dialogueStartState dialogueStart;
+
     public delegate void PlayState();
     public static event PlayState play;
 
@@ -23,13 +26,22 @@ public class GameManager : MonoBehaviour
     public TMP_Text sheepActiveCount;
     public TMP_Text sheepDeliveredCount;
 
-    public
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         GetSheepCounts();
         enter();
         Ready();
+        StartCoroutine(LateStart());
+    }
+
+    public IEnumerator LateStart()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        if(dialogueStart != null)
+        {
+            dialogueStart();
+        }
+
     }
 
     private void OnEnable()
@@ -47,16 +59,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            ResetScene();
-        }
-
-        if(Input.GetMouseButtonDown(0))
-        {
-            Play();
-        }
     }
+
     void GetSheepCounts()
     {
         current = sheeps.Length;
@@ -149,7 +153,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    void Play()
+    public void Play()
     {
         Time.timeScale = 1;
         play();

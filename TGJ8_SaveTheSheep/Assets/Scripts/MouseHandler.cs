@@ -10,55 +10,75 @@ public class MouseHandler : MonoBehaviour
     public AudioSource sfxClickDestroyProjectile;
     public AudioSource sfxClickInteractableTerrain;
     public Animator anim;
+    private bool mouseAllowed;
+
+    private void OnEnable()
+    {
+        GameManager.play += allowMouse;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.play -= allowMouse;
+    }
+
+    public void allowMouse()
+    {
+        mouseAllowed = true;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        //sheep jumps when left click
-        if(Input.GetMouseButtonDown(0))
+        if(mouseAllowed)
         {
-            anim.SetBool("Pressed", true);
-            Collider2D sheepColl = detectSheepAtCurs();
-            if(sheepColl != null)
+            //sheep jumps when left click
+            if (Input.GetMouseButtonDown(0))
             {
-                sheepColl.gameObject.GetComponent<SheepBeh>().mouseJump();
-                sfxClickSheepJump.Play();
-            }
-            else
-            {
-                Collider2D dBullColl = detectDestructableBulletAtCurs();
-                if(dBullColl != null)
+                anim.SetBool("Pressed", true);
+                Collider2D sheepColl = detectSheepAtCurs();
+                if (sheepColl != null)
                 {
-                    dBullColl.gameObject.GetComponent<KnifeHandler>().clickDestroy();
-                    sfxClickDestroyProjectile.Play();
+                    sheepColl.gameObject.GetComponent<SheepBeh>().mouseJump();
+                    sfxClickSheepJump.Play();
                 }
                 else
                 {
-                    Collider2D intObjColl = detectInteractableObject();
-                    if(intObjColl != null)
+                    Collider2D dBullColl = detectDestructableBulletAtCurs();
+                    if (dBullColl != null)
                     {
-                        intObjColl.gameObject.GetComponent<InteractableObject>().onInteract();
-                        sfxClickInteractableTerrain.Play();
+                        dBullColl.gameObject.GetComponent<KnifeHandler>().clickDestroy();
+                        sfxClickDestroyProjectile.Play();
                     }
-                    else sfxClickNoClickable.Play();
+                    else
+                    {
+                        Collider2D intObjColl = detectInteractableObject();
+                        if (intObjColl != null)
+                        {
+                            intObjColl.gameObject.GetComponent<InteractableObject>().onInteract();
+                            sfxClickInteractableTerrain.Play();
+                        }
+                        else sfxClickNoClickable.Play();
+                    }
                 }
             }
-        }
-        //turn sheep if right click
-        else if (Input.GetMouseButtonDown(1))
-        {
-            anim.SetBool("Pressed", true);
-            Collider2D sheepColl = detectSheepAtCurs();
-            if(sheepColl != null)
+            //turn sheep if right click
+            else if (Input.GetMouseButtonDown(1))
             {
-                sheepColl.gameObject.GetComponent<SheepBeh>().mouseTurn();
-                sfxClickSheepTurn.Play();
+                anim.SetBool("Pressed", true);
+                Collider2D sheepColl = detectSheepAtCurs();
+                if (sheepColl != null)
+                {
+                    sheepColl.gameObject.GetComponent<SheepBeh>().mouseTurn();
+                    sfxClickSheepTurn.Play();
+                }
+            }
+            if (!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
+            {
+                anim.SetBool("Pressed", false);
             }
         }
-        if(!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
-        {
-            anim.SetBool("Pressed", false);
-        }
+
     }
 
     Collider2D detectSheepAtCurs()
