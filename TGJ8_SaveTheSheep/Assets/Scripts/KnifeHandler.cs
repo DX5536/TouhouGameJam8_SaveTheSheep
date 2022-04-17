@@ -6,6 +6,8 @@ public class KnifeHandler : MonoBehaviour
 {
     float startingXVel = -4f;
     bool spawnedByTurret = false;
+    float projectileLength = 0.7f; //positive
+    float projectileOffsetX = -0.2f;//assuming arrow is travelling forward along x
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,7 @@ public class KnifeHandler : MonoBehaviour
         collideables.layerMask = LayerMask.GetMask("Sheep", "Default");
 
         List<RaycastHit2D> hitList = new List<RaycastHit2D>();
-        if(Physics2D.Raycast(new Vector2(gameObject.GetComponent<Rigidbody2D>().position.x + (startingXVel > 0 ? -0.1f : 0.1f), gameObject.GetComponent<Rigidbody2D>().position.y), startingXVel > 0 ? Vector2.right : Vector2.left, collideables, hitList, 0.45f) > 0)
+        if(Physics2D.Raycast(new Vector2(gameObject.GetComponent<Rigidbody2D>().position.x + (startingXVel > 0 ? projectileOffsetX : -projectileOffsetX), gameObject.GetComponent<Rigidbody2D>().position.y), startingXVel > 0 ? Vector2.right : Vector2.left, collideables, hitList, projectileLength) > 0)
         {
             if(hitList[0].collider.gameObject.layer == LayerMask.NameToLayer("Sheep"))
             {
@@ -57,6 +59,8 @@ public class KnifeHandler : MonoBehaviour
     {
         //Debug.Log("spawn script procced");
         spawnedByTurret = true;
+        startingXVel = vel;
         setXVelocity(vel);
+        if(vel > 0) gameObject.transform.localScale = Vector3.Scale(gameObject.transform.localScale, new Vector3(-1,1,1));
     }
 }
