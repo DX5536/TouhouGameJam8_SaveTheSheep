@@ -2,6 +2,8 @@ using System.Collections.Specialized;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.U2D.Animation;
+using System.Linq;
 
 public class SheepBeh : MonoBehaviour
 {
@@ -53,6 +55,7 @@ public class SheepBeh : MonoBehaviour
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
+        wearRandomHat();
         //gameObject.GetComponent<SpriteRenderer>().flipX = startdir != dir.right ? true : false;
         curDir = startdir;
         FlipScale(curDir);
@@ -292,5 +295,15 @@ public class SheepBeh : MonoBehaviour
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
+    }
+
+    void wearRandomHat()
+    {
+        string[] labels = gameObject.GetComponent<SpriteLibrary>().spriteLibraryAsset.GetCategoryLabelNames("Accessory").ToArray();
+        int index = Random.Range(0, labels.Length);
+        string label = labels[index];
+        var accessory = gameObject.transform.GetChild(0).GetChild(0);
+        accessory.GetComponent<SpriteRenderer>().enabled = true;
+        accessory.GetComponent<SpriteResolver>().SetCategoryAndLabel("Accessory", label);
     }
 }
