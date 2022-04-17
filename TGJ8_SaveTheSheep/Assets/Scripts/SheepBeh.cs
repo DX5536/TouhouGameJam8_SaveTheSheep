@@ -281,7 +281,37 @@ public class SheepBeh : MonoBehaviour
     IEnumerator deliveryRoutine()
     {
         float winAnimationTime = 1f;
-        yield return new WaitForSeconds(winAnimationTime);
+
+        float time = 0;
+        Vector3 startValue = gameObject.transform.localPosition;
+        Vector3 targetValue = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2f, gameObject.transform.position.z);
+
+        Color startCol = new Color(1f, 1f, 1f, 1f);
+        Color endCol = new Color(1f, 1f, 1f, 0f);
+
+        SpriteRenderer accessory = gameObject.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+        SpriteRenderer backLeg1 = gameObject.transform.GetChild(3).GetChild(0).GetComponent<SpriteRenderer>();
+        SpriteRenderer backLeg2 = gameObject.transform.GetChild(3).GetChild(1).GetComponent<SpriteRenderer>();
+        SpriteRenderer frontLeg1 = gameObject.transform.GetChild(3).GetChild(2).GetComponent<SpriteRenderer>();
+        SpriteRenderer frontLeg2 = gameObject.transform.GetChild(3).GetChild(3).GetComponent<SpriteRenderer>();
+        SpriteRenderer body = gameObject.transform.GetChild(5).GetComponent<SpriteRenderer>();
+
+        while (time < winAnimationTime)
+        {
+            gameObject.transform.position = Vector3.Lerp(startValue, targetValue, time / winAnimationTime);
+            accessory.color = Color.Lerp(startCol, endCol, time / winAnimationTime);
+            backLeg1.color = Color.Lerp(startCol, endCol, time / winAnimationTime);
+            backLeg2.color = Color.Lerp(startCol, endCol, time / winAnimationTime);
+            frontLeg1.color = Color.Lerp(startCol, endCol, time / winAnimationTime);
+            frontLeg2.color = Color.Lerp(startCol, endCol, time / winAnimationTime);
+            body.color = Color.Lerp(startCol, endCol, time / winAnimationTime);
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+        gameObject.transform.position = targetValue;
+         
+        //yield return new WaitForSeconds(winAnimationTime);
         deliver(); //finalize delivering
     }
 

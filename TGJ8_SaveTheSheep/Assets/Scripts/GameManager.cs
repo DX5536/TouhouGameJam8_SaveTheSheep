@@ -82,10 +82,6 @@ public class GameManager : MonoBehaviour
 
     void DetectedSheepDelivered()
     {
-        if (current >= 0)
-        {
-            current--;
-        }
         if(delivered < goal)
         {
             delivered++;
