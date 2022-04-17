@@ -701,6 +701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoremyCursorSprite
       objectReference: {fileID: 0}
+    - target: {fileID: 6039538808962559282, guid: e205589b22ac9aa45a27854b18d58a9f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6039538808962559284, guid: e205589b22ac9aa45a27854b18d58a9f, type: 3}
       propertyPath: offset.x
       value: 0.2
