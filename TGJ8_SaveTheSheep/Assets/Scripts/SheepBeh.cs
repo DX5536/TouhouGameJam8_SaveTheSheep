@@ -39,6 +39,8 @@ public class SheepBeh : MonoBehaviour
     public delegate void DeliverState();
     public static event DeliverState delivered;
     bool isDelivered = false;
+    float jumpCooldownBeforeAntiSlide = 0.5f;
+    bool canDoAntislide = false;
 
     //determines the maximum velocity down a sheep may go before their forward momentum halts
     double maxFallVBeforeHalt = 0.5;
@@ -69,6 +71,7 @@ public class SheepBeh : MonoBehaviour
         {
             //Debug.Log("is wait "+isWaiting+ " isoncd "+onWaitCooldown);
             bool isFall = (gameObject.GetComponent<Rigidbody2D>().velocity.y < -maxFallVBeforeHalt) && !isGrounded();
+            //Debug.Log("fall: "+isFall);
             anim.SetBool("Falling", isFall);
             if (isFall && !currentlyTrackingFall)
             {
@@ -81,12 +84,19 @@ public class SheepBeh : MonoBehaviour
             }
             else
             {
+                if(hasJumped && canDoAntislide && isGrounded())
+                {
+                    hasJumped = false;
+                    canDoAntislide = false;
+                    inGroundCheckLoop = false;
+                }
                 if (!isWaiting) gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(hasJumped ? (float)(curXVel * jumpMult) : (float)curXVel, gameObject.GetComponent<Rigidbody2D>().velocity.y);
                 if (detectWall()) flip();
                 if (hasJumped && isFall && !inGroundCheckLoop) inGroundCheckLoop = true;
                 if (inGroundCheckLoop && isGrounded())
                 {
                     hasJumped = false;
+                    canDoAntislide = false;
                     inGroundCheckLoop = false;
                 }
             }
@@ -148,7 +158,15 @@ public class SheepBeh : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(gameObject.GetComponent<Rigidbody2D>().velocity.x, JumpVelocity);
             hasJumped = true;
+            canDoAntislide = false;
+            StartCoroutine(doAntislideTimer());
         }
+    }
+
+    IEnumerator doAntislideTimer()
+    {
+        yield return new WaitForSecondsRealtime(jumpCooldownBeforeAntiSlide);
+        if(hasJumped) canDoAntislide = true;
     }
 
     bool isFatalFall(Vector2 orig, Vector2 current)
