@@ -19,7 +19,7 @@ public class SheepBeh : MonoBehaviour
     double wallDetectionRange = 0.05;
     float wallDeadzone = 0.501f;
     float wallVertCheckDown= 0.15f;
-    float wallVertCheckUp = 0.499f;
+    float wallVertCheckUp = 0.5f;
     double floorDetectionRange = 0.05;
     float floorDeadzone = 0.501f;
     float fatalFallDistance = 2.95f;
