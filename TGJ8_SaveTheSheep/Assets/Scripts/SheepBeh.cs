@@ -18,7 +18,8 @@ public class SheepBeh : MonoBehaviour
     Animator anim;
     double wallDetectionRange = 0.05;
     float wallDeadzone = 0.501f;
-    float wallVertCheck= 0.15f;
+    float wallVertCheckDown= 0.15f;
+    float wallVertCheckUp = 0.499f;
     double floorDetectionRange = 0.05;
     float floorDeadzone = 0.501f;
     float fatalFallDistance = 2.95f;
@@ -127,11 +128,11 @@ public class SheepBeh : MonoBehaviour
         //the other checks higher and lower to catch other terrain
         if(!detectedWall)
         {
-            Vector2 rayoriginH = new Vector2(xOffset, transform.position.y+wallVertCheck);
+            Vector2 rayoriginH = new Vector2(xOffset, transform.position.y+wallVertCheckUp);
             detectedWall = _KiroLib.raycastToWall(rayoriginH, curDir == dir.right ? Vector2.right : Vector2.left, _KiroLib.getDefaultFilter(), wallDetectionRange);
             if(!detectedWall)
             {
-                Vector2 rayoriginL = new Vector2(xOffset, transform.position.y-wallVertCheck);
+                Vector2 rayoriginL = new Vector2(xOffset, transform.position.y-wallVertCheckDown);
                 detectedWall = _KiroLib.raycastToWall(rayoriginL, curDir == dir.right ? Vector2.right : Vector2.left, _KiroLib.getDefaultFilter(), wallDetectionRange);
             }
         }
