@@ -1118,6 +1118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sheep_02
       objectReference: {fileID: 0}
+    - target: {fileID: 4014183218361390655, guid: d057fdcd58869c94ea7bb177745d4bc4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5023700054484009521, guid: d057fdcd58869c94ea7bb177745d4bc4, type: 3}
       propertyPath: startdir
       value: 1
@@ -1500,6 +1504,10 @@ PrefabInstance:
     - target: {fileID: 4014183218361390655, guid: d057fdcd58869c94ea7bb177745d4bc4, type: 3}
       propertyPath: m_Name
       value: Sheep_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014183218361390655, guid: d057fdcd58869c94ea7bb177745d4bc4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5023700054484009521, guid: d057fdcd58869c94ea7bb177745d4bc4, type: 3}
       propertyPath: startdir
