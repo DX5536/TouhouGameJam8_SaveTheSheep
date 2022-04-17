@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e8731260c8d9b48a4a7d20b8da55cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  so: {fileID: 11400000, guid: b5f212debd101c14db0ece8cd96388cf, type: 2}
+  so: {fileID: 11400000, guid: 3db63b29e5227454689e6fb31f28f9ce, type: 2}
   pauseSFX: {fileID: 2116694932814105352}
   resumeSFX: {fileID: 2116694934351815019}
   selectSFX: {fileID: 2116694933019707475}
