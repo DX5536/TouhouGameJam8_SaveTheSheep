@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128082f7d9157354daafe9e4382f2d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevelName: tutorialCK
+  firstLevelName: Dialogue
   clickSound: {fileID: 630753894}
   creditsMenu: {fileID: 207246755}
 --- !u!4 &246782248
