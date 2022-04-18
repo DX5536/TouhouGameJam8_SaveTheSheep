@@ -25,7 +25,7 @@ public class KnifeHandler : MonoBehaviour
     {
         ContactFilter2D collideables = new ContactFilter2D();
         collideables.useLayerMask = true;
-        collideables.layerMask = LayerMask.GetMask("Sheep", "Default");
+        collideables.layerMask = LayerMask.GetMask("Sheep", "Default", "Interactable_Terrain");
 
         List<RaycastHit2D> hitList = new List<RaycastHit2D>();
         if(Physics2D.Raycast(new Vector2(gameObject.GetComponent<Rigidbody2D>().position.x + (startingXVel > 0 ? projectileOffsetX : -projectileOffsetX), gameObject.GetComponent<Rigidbody2D>().position.y), startingXVel > 0 ? Vector2.right : Vector2.left, collideables, hitList, projectileLength) > 0)

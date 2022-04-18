@@ -1258,6 +1258,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d057fdcd58869c94ea7bb177745d4bc4, type: 3}
+--- !u!114 &1544561859 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6931976603297262918, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+  m_PrefabInstance: {fileID: 6931976603646397937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1731470753
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,30 +3112,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 316061953037524739, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025421417623396458, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025421417623396501, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025421417623396501, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025421417623396501, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025421417623396501, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 6230317659392860357, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: mouse
+      value: 
+      objectReference: {fileID: 3005851470933656458}
+    - target: {fileID: 6931976602099818885, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1544561859}
+    - target: {fileID: 6931976602099818885, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: SoundManager
+      value: 
+      objectReference: {fileID: 2116694934265652512}
     - target: {fileID: 6931976602099818885, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: sheepDeliveredCount
       value: 
@@ -3141,21 +3140,13 @@ PrefabInstance:
       propertyPath: sheeps.Array.data[2]
       value: 
       objectReference: {fileID: 986253774}
-    - target: {fileID: 7818751706838376610, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
-      propertyPath: m_Color.a
+    - target: {fileID: 6931976602099818886, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7818751706838376615, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+    - target: {fileID: 8673150904399477639, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8658404195066941953, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8673150905872706857, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8673150906142590027, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_Name

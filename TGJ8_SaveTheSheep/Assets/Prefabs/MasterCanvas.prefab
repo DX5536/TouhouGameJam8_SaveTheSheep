@@ -736,7 +736,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeScreen: {fileID: 7818751706838376610}
   buttonSet: {fileID: 1025421417623396458}
-  blurb: {fileID: 0}
+  mouse: {fileID: 0}
+  canPause: 0
 --- !u!1 &8673150904399477639
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8673150904399477640
 RectTransform:
   m_ObjectHideFlags: 0
@@ -841,7 +842,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ready?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2bf0513fb8bcac642bf818467eb29381, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -905,7 +906,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8673150905300488791
@@ -1519,6 +1520,8 @@ MonoBehaviour:
   goal: 3
   sheepActiveCount: {fileID: 8673150906151238635}
   sheepDeliveredCount: {fileID: 0}
+  SoundManager: {fileID: 0}
+  button: {fileID: 0}
 --- !u!114 &5194388305751602253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1676,11 +1679,71 @@ PrefabInstance:
     - target: {fileID: 2067482533860390941, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 2bf0513fb8bcac642bf818467eb29381, type: 2}
+    - target: {fileID: 2067482533860390941, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067482534215049245, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6230317659392860357}
+    - target: {fileID: 2067482534215049245, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Pause, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067482534229202571, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067482534229202571, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067482534229202571, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6931976602099818885}
+    - target: {fileID: 2067482534229202571, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067482534229202571, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067482534229202571, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067482534229202571, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067482534288941783, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6931976602099818885}
+    - target: {fileID: 2067482534288941783, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067482534288941783, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2067482535008485439, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 2bf0513fb8bcac642bf818467eb29381, type: 2}
+    - target: {fileID: 2067482535008485439, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067482535128028188, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2067482535128028190, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1771,12 +1834,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2067482535128028387, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2067482535567682549, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 2bf0513fb8bcac642bf818467eb29381, type: 2}
+    - target: {fileID: 2067482535567682549, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e0133f14a4a39249988211b583fac88, type: 3}
 --- !u!224 &1025421417623396503 stripped
@@ -1899,6 +1966,10 @@ PrefabInstance:
     - target: {fileID: 5084979686207398679, guid: f1b6a602a8d126548a1fa37634d318ad, type: 3}
       propertyPath: m_Name
       value: PauseScreenBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084979686207398679, guid: f1b6a602a8d126548a1fa37634d318ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1b6a602a8d126548a1fa37634d318ad, type: 3}

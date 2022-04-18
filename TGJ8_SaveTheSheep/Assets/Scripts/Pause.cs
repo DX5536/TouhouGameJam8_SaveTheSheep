@@ -13,22 +13,34 @@ public class Pause : MonoBehaviour
 
     public Image fadeScreen;
     public GameObject buttonSet;
-    public GameObject blurb;
+
+    public FollowMouse mouse;
+
+    public bool canPause;
 
     public void Start()
     {
     }
 
+    private void OnEnable()
+    {
+        GameManager.play += toggleCanPause;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.play += toggleCanPause;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if(canPause)
         {
-            PauseGame();
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ResumeGame();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                PauseGame();
+            }
         }
     }
 
@@ -36,7 +48,9 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = 0;
         Debug.Log("Pause");
+        canPause = false;
         pause();
+        mouse.CursorVisible();
         fadeScreen.gameObject.SetActive(true);
         StartCoroutine(FadeRoutine(0.5f, 5f, true));
         buttonSet.SetActive(true);
@@ -46,7 +60,9 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = 1;
         Debug.Log("Resume");
+        canPause = true;
         resume();
+        mouse.CursorInvisible();
         buttonSet.SetActive(false);
         StartCoroutine(FadeRoutine(0f, 5f, false));
         fadeScreen.gameObject.SetActive(false);
@@ -80,5 +96,10 @@ public class Pause : MonoBehaviour
             }
         }
 
+    }
+
+    void toggleCanPause()
+    {
+        canPause = true;
     }
 }

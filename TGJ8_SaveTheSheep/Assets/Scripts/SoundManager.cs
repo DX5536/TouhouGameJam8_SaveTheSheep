@@ -56,6 +56,8 @@ public class SoundManager : MonoBehaviour
         Pause.resume += ResumeSFX;
         Pause.pause += PauseSFX;
 
+        GameManager.exit += PlayingTrack;
+
         SheepBeh.death += DeathSFX;
         //SheepBeh.delivered += DetectedSheepDelivered;
 
@@ -67,6 +69,8 @@ public class SoundManager : MonoBehaviour
         Pause.pause -= PausedTrack;
         Pause.resume -= ResumeSFX;
         Pause.pause -= PauseSFX;
+
+        GameManager.exit -= PlayingTrack;
 
         SheepBeh.death -= DeathSFX;
         //SheepBeh.delivered -= DetectedSheepDelivered;

@@ -26,12 +26,19 @@ public class GameManager : MonoBehaviour
     public TMP_Text sheepActiveCount;
     public TMP_Text sheepDeliveredCount;
 
+    public GameObject SoundManager;
+
+    public Button button;
+
+    public bool isLast;
+
     public void Start()
     {
         GetSheepCounts();
         enter();
         Ready();
-        StartCoroutine(LateStart());
+        button.interactable = true;
+        //StartCoroutine(LateStart());
     }
 
     public IEnumerator LateStart()
@@ -59,6 +66,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(current == 0)
+        {
+            CheckSheep();
+        }
     }
 
     void GetSheepCounts()
@@ -66,6 +77,18 @@ public class GameManager : MonoBehaviour
         current = sheeps.Length;
         total = sheeps.Length;
         UpdateText();
+    }
+
+    void CheckSheep()
+    {
+        if(delivered == goal)
+        {
+            StageCleared();
+        }
+        if(delivered < goal)
+        {
+            GameOver();
+        }
     }
 
     void UpdateText()
@@ -76,37 +99,15 @@ public class GameManager : MonoBehaviour
 
     void DetectedSheepDeath()
     {
-        if(current >= 0)
-        {
-            current--;
-        }
+        current--;
+        UpdateText();
 
-        if(current == 0)
-        {
-            GameOver();
-        }
     }
 
     void DetectedSheepDelivered()
     {
-        if (current >= 0)
-        {
-            current--;
-        }
-        if (delivered < goal)
-        {
-            delivered++;
-        }
-
-        if (delivered == goal)
-        {
-            StageCleared();
-        }
-
-        if (current == 0)
-        {
-            GameOver();
-        }
+        current--;
+        delivered++;
 
         UpdateText();
     }
@@ -126,13 +127,18 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         //NextScene();
+        Debug.Log("GameOver");
         ResetScene();
     }
 
     void StageCleared()
     {
         Debug.Log("Clear");
-        ResetScene();
+        if(isLast)
+        {
+            Destroy(SoundManager);
+        }
+        StartCoroutine(WipeSceneRoutine(SceneManager.GetActiveScene().buildIndex+1));
         // load next scene
         //StartCoroutine(WipeSceneRoutine(1));
     }
@@ -144,10 +150,20 @@ public class GameManager : MonoBehaviour
         //StartCoroutine(WipeSceneRoutine(SceneManager.GetActiveScene().buildIndex));
     }
 
-    void ResetScene()
+    public void ResetScene()
     {
         exit();
         StartCoroutine(WipeSceneRoutine(SceneManager.GetActiveScene().buildIndex));
+        //SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex));
+        //screen wipe
+        //load scene current
+    }
+
+    public void ReturnToTile()
+    {
+        exit();
+        Destroy(SoundManager);
+        StartCoroutine(WipeSceneRoutine(0));
         //SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex));
         //screen wipe
         //load scene current

@@ -11,7 +11,7 @@ public class GKnifeThrowerScript : MonoBehaviour
     public bool usesAudioSource = false;
     public bool shootRight = false;
 
-    float throwDelays = 1;
+    public float throwDelays = 5;
     bool breakLoop = false;
     AudioSource selfAudio;
 
@@ -31,7 +31,7 @@ public class GKnifeThrowerScript : MonoBehaviour
 
     IEnumerator repeatThrow()
     {
-        yield return new WaitForSecondsRealtime(throwDelays);
+        //yield return new WaitForSecondsRealtime(throwDelays);
         while(!breakLoop)
         {
             Rigidbody2D newKnife = Instantiate(knifeToThrow, new Vector3(gameObject.transform.position.x+(shootRight ? -xOffset : xOffset), gameObject.transform.position.y+yOffset, gameObject.transform.position.z), Quaternion.Euler(0, 0, 0));
