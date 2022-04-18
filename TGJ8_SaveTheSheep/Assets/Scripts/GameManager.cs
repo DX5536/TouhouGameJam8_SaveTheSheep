@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         GetSheepCounts();
         enter();
         Ready();
-        button.interactable = true;
+        if(button!=null)button.interactable = true;
         //StartCoroutine(LateStart());
     }
 

@@ -1892,6 +1892,7 @@ MonoBehaviour:
   sheepDeliveredCount: {fileID: 576408990}
   SoundManager: {fileID: 2116694934265652512}
   button: {fileID: 1030987959}
+  isLast: 0
 --- !u!82 &1691561078
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2313,7 +2314,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d7d9a3e6a56999a408dc501744e02ec0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5419,11 +5420,6 @@ MonoBehaviour:
   text: {fileID: 7228756057660765011}
   fullText: Hello young dreamer. My name is Doremy Sweet. A ferry who guides those
     to sweet dreams. BUH
-  fullTextTest:
-  - Hello young dreamer. My name is Doremy Sweet. A ferry who guides those to sweet
-    dreams. BUH
-  - Reimu kinda bussin
-  - Sanae hot
   audioSource: {fileID: 7228756057660765012}
   SpeakNoises:
   - {fileID: 8300000, guid: cd2028d95ab1e084ab8eea10f806bad0, type: 3}
@@ -5614,11 +5610,6 @@ MonoBehaviour:
   text: {fileID: 7228756058515539935}
   fullText: Hello young dreamer. My name is Doremy Sweet. A ferry who guides those
     to sweet dreams. BUH
-  fullTextTest:
-  - Hello young dreamer. My name is Doremy Sweet. A ferry who guides those to sweet
-    dreams. BUH
-  - Reimu kinda bussin
-  - Sanae hot
   audioSource: {fileID: 7228756058515539873}
   SpeakNoises:
   - {fileID: 8300000, guid: cd2028d95ab1e084ab8eea10f806bad0, type: 3}
