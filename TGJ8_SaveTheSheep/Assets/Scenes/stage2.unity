@@ -637,8 +637,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5375461052391309565}
     m_Modifications:
+    - target: {fileID: 1025421417206068406, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1025421417623396458, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025421417731170172, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025421418205465748, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_margin.y
+      value: 2.6898947
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025421418205465748, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5194388305751602253, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
@@ -673,6 +689,10 @@ PrefabInstance:
       propertyPath: sheeps.Array.data[2]
       value: 
       objectReference: {fileID: 386169018}
+    - target: {fileID: 7749896707056404993, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7818751706838376615, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -684,6 +704,14 @@ PrefabInstance:
     - target: {fileID: 8673150904399477639, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8673150904919820785, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8673150905300488791, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8673150906142590027, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_Name
