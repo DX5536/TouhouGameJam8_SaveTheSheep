@@ -80,18 +80,35 @@ public class GameManager : MonoBehaviour
         {
             current--;
         }
-        UpdateText();
-        ValidateGameState();
+
+        if(current == 0)
+        {
+            GameOver();
+        }
     }
 
     void DetectedSheepDelivered()
     {
-        if(delivered < goal)
+        if (current >= 0)
+        {
+            current--;
+        }
+        if (delivered < goal)
         {
             delivered++;
         }
+
+        if (delivered == goal)
+        {
+            StageCleared();
+        }
+
+        if (current == 0)
+        {
+            GameOver();
+        }
+
         UpdateText();
-        ValidateGameState();
     }
 
     void ValidateGameState()

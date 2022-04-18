@@ -37,9 +37,9 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0;
         Debug.Log("Pause");
         pause();
+        fadeScreen.gameObject.SetActive(true);
         StartCoroutine(FadeRoutine(0.5f, 5f, true));
         buttonSet.SetActive(true);
-        blurb.SetActive(true);
     }
 
     public void ResumeGame()
@@ -48,8 +48,8 @@ public class Pause : MonoBehaviour
         Debug.Log("Resume");
         resume();
         buttonSet.SetActive(false);
-        blurb.SetActive(false);
         StartCoroutine(FadeRoutine(0f, 5f, false));
+        fadeScreen.gameObject.SetActive(false);
     }
 
     IEnumerator FadeRoutine(float targetAlpha, float fadeSpeed, bool fadeToBlack)

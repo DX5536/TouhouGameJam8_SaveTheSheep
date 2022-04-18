@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 803284e3ff21aa6438257068c9941a70, type: 3}
-  m_Name: Stage
+  m_Name: Stage1
   m_EditorClassIdentifier: 
-  needDialogue: 1
+  needDialogue: 0
   playingAudio: {fileID: 8300000, guid: 9a9fe441456f04440b415d6b5626d0e7, type: 3}
   pauseAudio: {fileID: 8300000, guid: d7d9a3e6a56999a408dc501744e02ec0, type: 3}

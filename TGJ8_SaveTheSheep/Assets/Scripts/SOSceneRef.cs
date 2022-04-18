@@ -20,6 +20,6 @@ public class SOSceneRef : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        so.needDialogue = true;
+        //so.needDialogue = true;
     }
 }
