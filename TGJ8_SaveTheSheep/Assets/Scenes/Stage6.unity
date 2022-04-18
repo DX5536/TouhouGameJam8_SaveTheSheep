@@ -20087,7 +20087,7 @@ PrefabInstance:
       objectReference: {fileID: 1544561859}
     - target: {fileID: 6931976602099818885, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: isLast
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6931976602099818885, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: SoundManager

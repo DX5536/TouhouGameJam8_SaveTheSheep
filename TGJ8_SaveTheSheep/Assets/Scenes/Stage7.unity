@@ -21070,7 +21070,7 @@ PrefabInstance:
       objectReference: {fileID: 1544561859}
     - target: {fileID: 6931976602099818885, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: isLast
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6931976602099818885, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: SoundManager
