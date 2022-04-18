@@ -195,6 +195,8 @@ public class SheepBeh : MonoBehaviour
         //we can either leave it there or clean it up and destroy it
         healthState = health.dead;
         anim.SetBool("Dead", true);
+        //gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        //gameObject.layer = LayerMask.NameToLayer("Sheep_removedFromPlay");
         death();
         StartCoroutine(DeathRoutine(1f, true));
 
