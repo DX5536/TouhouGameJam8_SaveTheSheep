@@ -12,5 +12,6 @@ public class WinGoalSheepScan : MonoBehaviour
         List<RaycastHit2D> hitList = new List<RaycastHit2D>();
         if (Physics2D.Raycast(new Vector2(gameObject.transform.position.x + scanXOffset, gameObject.transform.position.y + scanYOffset), Vector2.zero, _KiroLib.getSheepFilter(), hitList, 1) > 0)
         hitList[0].collider.gameObject.GetComponent<SheepBeh>().markAsDelivered();
+
     }
 }
