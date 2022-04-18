@@ -52,4 +52,12 @@ public class _KiroLib : MonoBehaviour
         intFilter.layerMask = LayerMask.GetMask("Interactable_Terrain");
         return intFilter;
     }
+
+    public static ContactFilter2D getPanicFilter() //AAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH AHHHHHHHHHHHHHHHHHHH AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHAHAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+    {
+        ContactFilter2D AHHFilter = new ContactFilter2D();
+        AHHFilter.useLayerMask = true;
+        AHHFilter.layerMask = LayerMask.GetMask("MM_EmergencyLayer");
+        return AHHFilter;
+    }
 }
