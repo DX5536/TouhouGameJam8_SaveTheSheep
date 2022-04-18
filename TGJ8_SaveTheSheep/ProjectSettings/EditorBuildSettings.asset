@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Dialogue.unity
     guid: 3e1c3b2f0bde0004b8109144c1db6fe5
   - enabled: 1
-    path: Assets/Scenes/tutorialCK.unity
+    path: Assets/Scenes/stage0_tutorialCK.unity
     guid: 8c5243690bfb71b46b99fbb9663330ad
   - enabled: 1
     path: Assets/Scenes/stage1.unity
