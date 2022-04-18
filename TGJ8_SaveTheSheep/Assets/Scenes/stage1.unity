@@ -330,11 +330,11 @@ PrefabInstance:
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 1209157398, guid: 6b01297dc27c17448adcc44a21e9d639, type: 3}
       propertyPath: scanXOffset
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1209157398, guid: 6b01297dc27c17448adcc44a21e9d639, type: 3}
       propertyPath: scanYOffset
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1667653562, guid: 6b01297dc27c17448adcc44a21e9d639, type: 3}
       propertyPath: m_AnchoredPosition.x
