@@ -3326,6 +3326,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7818751706838376615, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997458413108234166, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_text
+      value: 'Tips: Jump over the gap to reach Mayumi'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997458413108234166, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8673150904399477639, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_IsActive
       value: 1

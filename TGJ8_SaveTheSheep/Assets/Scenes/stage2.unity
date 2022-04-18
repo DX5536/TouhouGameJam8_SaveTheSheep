@@ -203,7 +203,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &133809637
 GameObject:
@@ -625,17 +625,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2065dc2e736e39b4fa1de6f6a05cb319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &617076611 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8673150906142590031, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
-  m_PrefabInstance: {fileID: 688790746}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &688790746
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5375461052391309565}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1025421417206068406, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -697,6 +692,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7997458413108234166, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_text
+      value: 'Tips: Time your jump correctly.'
+      objectReference: {fileID: 0}
     - target: {fileID: 8658404195066941953, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -727,7 +726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8673150906142590031, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8673150906142590031, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1527,7 +1526,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2827266701296344693, guid: 6b01297dc27c17448adcc44a21e9d639, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2827266701296344693, guid: 6b01297dc27c17448adcc44a21e9d639, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2765,9 +2764,8 @@ Transform:
   m_Children:
   - {fileID: 4824851645741147576}
   - {fileID: 7700106797223040968}
-  - {fileID: 617076611}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5792323669471124873
 AudioSource:
