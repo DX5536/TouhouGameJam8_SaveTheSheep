@@ -3776,7 +3776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997458413108234166, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_text
-      value: 'Tips: Guide the sheep by making them jump or turn around.'
+      value: 'Hint: Guide the sheep by making them jump or turn around.'
       objectReference: {fileID: 0}
     - target: {fileID: 8658404195066941953, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_IsActive

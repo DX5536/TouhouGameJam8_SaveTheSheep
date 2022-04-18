@@ -460,6 +460,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7997458413108234166, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
+      propertyPath: m_text
+      value: 'Hint: Try tackle one sheep at a time'
+      objectReference: {fileID: 0}
     - target: {fileID: 8673150904399477639, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -482,7 +486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8673150906142590031, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8673150906142590031, guid: 659af1075d7c4c44fb8ce1921145a34d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -720,7 +724,7 @@ Transform:
   - {fileID: 133809638}
   - {fileID: 1218931302}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &424183979 stripped
 MonoBehaviour:
@@ -1007,7 +1011,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6241852103360259576, guid: 0a222bcb149895f4294d4ab6a466b373, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6241852103360259576, guid: 0a222bcb149895f4294d4ab6a466b373, type: 3}
       propertyPath: m_LocalScale.x
@@ -1490,7 +1494,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5169278652290533576, guid: 2d476992119eba040b164cd1240c4d0a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5169278652290533576, guid: 2d476992119eba040b164cd1240c4d0a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2470,7 +2474,7 @@ Transform:
   - {fileID: 2099311442}
   - {fileID: 1653448138}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1660692015 stripped
 MonoBehaviour:
@@ -2695,7 +2699,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1806023181
 GameObject:
@@ -2977,7 +2981,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2893869901908356752, guid: e3123cc59057cf34ab03dfb9c914e13f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2893869901908356752, guid: e3123cc59057cf34ab03dfb9c914e13f, type: 3}
       propertyPath: m_LocalPosition.x
